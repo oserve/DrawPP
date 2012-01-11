@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0946659614BE3857005CAE76 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0946659514BE3857005CAE76 /* Cocoa.framework */; };
+		094665A014BE3857005CAE76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0946659E14BE3857005CAE76 /* InfoPlist.strings */; };
+		094665A314BE3857005CAE76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 094665A214BE3857005CAE76 /* main.m */; };
+		094665A614BE3857005CAE76 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 094665A414BE3857005CAE76 /* Credits.rtf */; };
+		094665A914BE3857005CAE76 /* OSPulprog.m in Sources */ = {isa = PBXBuildFile; fileRef = 094665A814BE3857005CAE76 /* OSPulprog.m */; };
+		094665AC14BE3857005CAE76 /* OSPulprog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094665AA14BE3857005CAE76 /* OSPulprog.xib */; };
+		094665AF14BE3857005CAE76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094665AD14BE3857005CAE76 /* MainMenu.xib */; };
+		094665B214BE3857005CAE76 /* OSPulprog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 094665B014BE3857005CAE76 /* OSPulprog.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0946659114BE3857005CAE76 /* DrawPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0946659514BE3857005CAE76 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		0946659814BE3857005CAE76 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		0946659914BE3857005CAE76 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0946659A14BE3857005CAE76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0946659D14BE3857005CAE76 /* DrawPP-Info.plist */ = {isa = PBXFileReference; path = "DrawPP-Info.plist"; sourceTree = "<group>"; };
+		0946659F14BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		094665A114BE3857005CAE76 /* DrawPP-Prefix.pch */ = {isa = PBXFileReference; path = "DrawPP-Prefix.pch"; sourceTree = "<group>"; };
+		094665A214BE3857005CAE76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		094665A514BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		094665A714BE3857005CAE76 /* OSPulprog.h */ = {isa = PBXFileReference; path = OSPulprog.h; sourceTree = "<group>"; };
+		094665A814BE3857005CAE76 /* OSPulprog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSPulprog.m; sourceTree = "<group>"; };
+		094665AB14BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OSPulprog.xib; sourceTree = "<group>"; };
+		094665AE14BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		094665B114BE3857005CAE76 /* OSPulprog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OSPulprog.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0946658E14BE3857005CAE76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0946659614BE3857005CAE76 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0946658614BE3857005CAE76 = {
+			isa = PBXGroup;
+			children = (
+				0946659B14BE3857005CAE76 /* DrawPP */,
+				0946659414BE3857005CAE76 /* Frameworks */,
+				0946659214BE3857005CAE76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0946659214BE3857005CAE76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0946659114BE3857005CAE76 /* DrawPP.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0946659414BE3857005CAE76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0946659514BE3857005CAE76 /* Cocoa.framework */,
+				0946659714BE3857005CAE76 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0946659714BE3857005CAE76 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0946659814BE3857005CAE76 /* AppKit.framework */,
+				0946659914BE3857005CAE76 /* CoreData.framework */,
+				0946659A14BE3857005CAE76 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		0946659B14BE3857005CAE76 /* DrawPP */ = {
+			isa = PBXGroup;
+			children = (
+				094665A714BE3857005CAE76 /* OSPulprog.h */,
+				094665A814BE3857005CAE76 /* OSPulprog.m */,
+				094665AA14BE3857005CAE76 /* OSPulprog.xib */,
+				094665AD14BE3857005CAE76 /* MainMenu.xib */,
+				094665B014BE3857005CAE76 /* OSPulprog.xcdatamodeld */,
+				0946659C14BE3857005CAE76 /* Supporting Files */,
+			);
+			path = DrawPP;
+			sourceTree = "<group>";
+		};
+		0946659C14BE3857005CAE76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0946659D14BE3857005CAE76 /* DrawPP-Info.plist */,
+				0946659E14BE3857005CAE76 /* InfoPlist.strings */,
+				094665A114BE3857005CAE76 /* DrawPP-Prefix.pch */,
+				094665A214BE3857005CAE76 /* main.m */,
+				094665A414BE3857005CAE76 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0946659014BE3857005CAE76 /* DrawPP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 094665B514BE3857005CAE76 /* Build configuration list for PBXNativeTarget "DrawPP" */;
+			buildPhases = (
+				0946658D14BE3857005CAE76 /* Sources */,
+				0946658E14BE3857005CAE76 /* Frameworks */,
+				0946658F14BE3857005CAE76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrawPP;
+			productName = DrawPP;
+			productReference = 0946659114BE3857005CAE76 /* DrawPP.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0946658814BE3857005CAE76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = IMS;
+			};
+			buildConfigurationList = 0946658B14BE3857005CAE76 /* Build configuration list for PBXProject "DrawPP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0946658614BE3857005CAE76;
+			productRefGroup = 0946659214BE3857005CAE76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0946659014BE3857005CAE76 /* DrawPP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0946658F14BE3857005CAE76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				094665A014BE3857005CAE76 /* InfoPlist.strings in Resources */,
+				094665A614BE3857005CAE76 /* Credits.rtf in Resources */,
+				094665AC14BE3857005CAE76 /* OSPulprog.xib in Resources */,
+				094665AF14BE3857005CAE76 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0946658D14BE3857005CAE76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				094665A314BE3857005CAE76 /* main.m in Sources */,
+				094665A914BE3857005CAE76 /* OSPulprog.m in Sources */,
+				094665B214BE3857005CAE76 /* OSPulprog.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0946659E14BE3857005CAE76 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0946659F14BE3857005CAE76 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		094665A414BE3857005CAE76 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				094665A514BE3857005CAE76 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		094665AA14BE3857005CAE76 /* OSPulprog.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				094665AB14BE3857005CAE76 /* en */,
+			);
+			name = OSPulprog.xib;
+			sourceTree = "<group>";
+		};
+		094665AD14BE3857005CAE76 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				094665AE14BE3857005CAE76 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		094665B314BE3857005CAE76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		094665B414BE3857005CAE76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		094665B614BE3857005CAE76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DrawPP/DrawPP-Prefix.pch";
+				INFOPLIST_FILE = "DrawPP/DrawPP-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		094665B714BE3857005CAE76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DrawPP/DrawPP-Prefix.pch";
+				INFOPLIST_FILE = "DrawPP/DrawPP-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0946658B14BE3857005CAE76 /* Build configuration list for PBXProject "DrawPP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				094665B314BE3857005CAE76 /* Debug */,
+				094665B414BE3857005CAE76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		094665B514BE3857005CAE76 /* Build configuration list for PBXNativeTarget "DrawPP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				094665B614BE3857005CAE76 /* Debug */,
+				094665B714BE3857005CAE76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		094665B014BE3857005CAE76 /* OSPulprog.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				094665B114BE3857005CAE76 /* OSPulprog.xcdatamodel */,
+			);
+			currentVersion = 094665B114BE3857005CAE76 /* OSPulprog.xcdatamodel */;
+			path = OSPulprog.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 0946658814BE3857005CAE76 /* Project object */;
+}
