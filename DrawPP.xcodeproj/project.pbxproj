@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09079B44150152EF009FC5DA /* OSChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09079B42150152EF009FC5DA /* OSChannelViewController.m */; };
+		09079B45150152EF009FC5DA /* OSChannelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09079B43150152EF009FC5DA /* OSChannelViewController.xib */; };
 		092A2B0214FA52E000C2BA5D /* OSPowerLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B0114FA52E000C2BA5D /* OSPowerLevel.m */; };
 		092A2B0814FA52E000C2BA5D /* OSDelay.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B0714FA52E000C2BA5D /* OSDelay.m */; };
 		092A2B0B14FA52E000C2BA5D /* OSChannelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B0A14FA52E000C2BA5D /* OSChannelEvent.m */; };
@@ -26,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09079B41150152EF009FC5DA /* OSChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelViewController.h; sourceTree = "<group>"; };
+		09079B42150152EF009FC5DA /* OSChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelViewController.m; sourceTree = "<group>"; };
+		09079B43150152EF009FC5DA /* OSChannelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSChannelViewController.xib; sourceTree = "<group>"; };
 		092A2B0014FA52E000C2BA5D /* OSPowerLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPowerLevel.h; sourceTree = "<group>"; };
 		092A2B0114FA52E000C2BA5D /* OSPowerLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPowerLevel.m; sourceTree = "<group>"; };
 		092A2B0614FA52E000C2BA5D /* OSDelay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSDelay.h; sourceTree = "<group>"; };
@@ -55,10 +60,10 @@
 		094665AB14BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OSPulprog.xib; sourceTree = "<group>"; };
 		094665AE14BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		094665B114BE3857005CAE76 /* OSPulprog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OSPulprog.xcdatamodel; sourceTree = "<group>"; };
-		09955D7014FD62E90079EFA5 /* OSPulseProgramViewDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; path = OSPulseProgramViewDataSourceProtocol.h; sourceTree = "<group>"; };
+		09955D7014FD62E90079EFA5 /* OSPulseProgramViewDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPulseProgramViewDataSourceProtocol.h; sourceTree = "<group>"; };
 		09955D7214FD64740079EFA5 /* OSPulseProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSPulseProgramViewController.h; path = ../OSPulseProgramViewController.h; sourceTree = "<group>"; };
 		09955D7314FD64740079EFA5 /* OSPulseProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OSPulseProgramViewController.m; path = ../OSPulseProgramViewController.m; sourceTree = "<group>"; };
-		09955D7914FD6DF70079EFA5 /* OSPulseProgramViewDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; path = OSPulseProgramViewDelegateProtocol.h; sourceTree = "<group>"; };
+		09955D7914FD6DF70079EFA5 /* OSPulseProgramViewDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPulseProgramViewDelegateProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +102,7 @@
 				0930920314FC19C6004838BB /* OSChannelView.m */,
 				0930920614FC1A46004838BB /* OSPulseProgramView.h */,
 				0930920714FC1A46004838BB /* OSPulseProgramView.m */,
+				09079B43150152EF009FC5DA /* OSChannelViewController.xib */,
 			);
 			name = "View Classes";
 			sourceTree = "<group>";
@@ -180,6 +186,8 @@
 			children = (
 				09955D7214FD64740079EFA5 /* OSPulseProgramViewController.h */,
 				09955D7314FD64740079EFA5 /* OSPulseProgramViewController.m */,
+				09079B41150152EF009FC5DA /* OSChannelViewController.h */,
+				09079B42150152EF009FC5DA /* OSChannelViewController.m */,
 			);
 			name = viewControllers;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 				094665A614BE3857005CAE76 /* Credits.rtf in Resources */,
 				094665AC14BE3857005CAE76 /* OSPulprog.xib in Resources */,
 				094665AF14BE3857005CAE76 /* MainMenu.xib in Resources */,
+				09079B45150152EF009FC5DA /* OSChannelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +269,7 @@
 				0930920414FC19C6004838BB /* OSChannelView.m in Sources */,
 				0930920814FC1A46004838BB /* OSPulseProgramView.m in Sources */,
 				09955D7514FD64740079EFA5 /* OSPulseProgramViewController.m in Sources */,
+				09079B44150152EF009FC5DA /* OSChannelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

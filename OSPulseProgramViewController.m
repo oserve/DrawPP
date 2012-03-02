@@ -25,7 +25,6 @@
 #pragma mark Delegate Methods
 
 - (OSChannelView *)pulseProgramView:(OSPulseProgramView *)aPulseProgramView channelViewForPosition:(NSUInteger)position{
-	// Si position pas dans channelViews, créer, mettre dans channelViews et retourner nouvelle channelView sinon, retourne celle qui existe
 	OSChannelView * channelView = nil;
 	for (OSChannelView * aChannelView in [aPulseProgramView channelViews]) {
 		if (aChannelView.positionOnGraph == position) {
@@ -39,6 +38,12 @@
 	
 	}
 	return channelView;
+}
+
+- (void)reloadViews{
+	if ([self.view respondsToSelector:@selector(reloadData)]) {
+		[self.view reloadData];
+	}
 }
 
 @end

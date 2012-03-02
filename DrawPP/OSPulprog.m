@@ -119,7 +119,7 @@
 
 - (IBAction)addChannel:(id)sender {
 	[self addChannelToProgram];
-	[self.pulseProgramViewController.view setNeedsDisplay:YES];
+	[self.pulseProgramViewController reloadViews];
 }
 
 #pragma mark Nib methods

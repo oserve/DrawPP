@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "OSPulseProgramViewDelegateProtocol.h"
+#import "OSChannelViewController.h"
 
 @interface OSPulseProgramViewController : NSViewController <OSPulseProgramViewDelegateProtocol>
+- (void)reloadViews;
 @end

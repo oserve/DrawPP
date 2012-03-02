@@ -56,6 +56,7 @@
 							<string key="NSFrame">{{14, 12}, {121, 32}}</string>
 							<reference key="NSSuperview" ref="622432860"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:687</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="600398284">
@@ -83,6 +84,7 @@
 							<string key="NSFrame">{{20, 60}, {782, 471}}</string>
 							<reference key="NSSuperview" ref="622432860"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1192</string>
 							<string key="NSClassName">OSPulseProgramView</string>
 						</object>
@@ -143,19 +145,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">dataSource</string>
-						<reference key="source" ref="492412884"/>
-						<reference key="destination" ref="512844837"/>
-					</object>
-					<int key="connectionID">100129</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="492412884"/>
 						<reference key="destination" ref="866034643"/>
 					</object>
 					<int key="connectionID">100130</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">dataSource</string>
+						<reference key="source" ref="492412884"/>
+						<reference key="destination" ref="512844837"/>
+					</object>
+					<int key="connectionID">100129</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -245,7 +247,6 @@
 								<int key="contentType">3</int>
 								<reference key="containingView" ref="622432860"/>
 							</object>
-							<reference ref="492412884"/>
 							<object class="IBNSLayoutConstraint" id="374823226">
 								<reference key="firstItem" ref="622432860"/>
 								<int key="firstAttribute">6</int>
@@ -294,6 +295,7 @@
 								<int key="contentType">3</int>
 								<reference key="containingView" ref="622432860"/>
 							</object>
+							<reference ref="492412884"/>
 						</array>
 						<reference key="parent" ref="948857321"/>
 					</object>
@@ -328,17 +330,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">100119</int>
 						<reference key="object" ref="492412884"/>
-						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="622432860"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">100123</int>
-						<reference key="object" ref="379822597"/>
-						<reference key="parent" ref="622432860"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">100125</int>
-						<reference key="object" ref="374823226"/>
+						<int key="objectID">100127</int>
+						<reference key="object" ref="160263393"/>
 						<reference key="parent" ref="622432860"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -347,8 +343,13 @@
 						<reference key="parent" ref="622432860"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">100127</int>
-						<reference key="object" ref="160263393"/>
+						<int key="objectID">100125</int>
+						<reference key="object" ref="374823226"/>
+						<reference key="parent" ref="622432860"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100123</int>
+						<reference key="object" ref="379822597"/>
 						<reference key="parent" ref="622432860"/>
 					</object>
 				</array>
@@ -386,7 +387,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100130</int>
+			<int key="maxID">100138</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

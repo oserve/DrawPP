@@ -125,17 +125,22 @@
     return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-	[[NSColor whiteColor] set];
-    NSRectFill(dirtyRect);
+- (void)reloadData{
 	NSMutableArray * channelsViews = [[NSMutableArray alloc] init];
 	NSUInteger i;
 	for (i=0; i<[self.dataSource numberOfChannelsInPulseProgramView:self]; i++) {
 		[channelsViews addObject:[self.delegate pulseProgramView:self channelViewForPosition:i]];
 	}
-	self.subviews = [NSArray arrayWithArray:channelsViews];
+	[self setChannelViews:[NSArray arrayWithArray:channelsViews]];
 	[channelsViews release];
+	[self setNeedsDisplay:YES];
+
+}
+
+- (void)drawRect:(NSRect)dirtyRect
+{
+	[[NSColor whiteColor] set];
+    NSRectFill(dirtyRect);
 }
 
 - (void) dealloc

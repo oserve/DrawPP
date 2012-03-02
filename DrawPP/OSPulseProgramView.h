@@ -18,4 +18,5 @@
 @property(retain) IBOutlet id <OSPulseProgramViewDataSourceProtocol> dataSource;
 - (NSArray *)channelViews;
 - (void)setChannelViews:(NSArray *)channelViews;
+- (void)reloadData;
 @end
