@@ -35,7 +35,9 @@
 - (void)setChannelViews:(NSArray *)channelViews{
 	for (id item in channelViews) {
 		if ([item isKindOfClass:[OSChannelView class]]) {
-			[self addSubview:item];
+			if (![self.subviews containsObject:item]) {
+				[self addSubview:item];
+			}
 		}
 	}
 	[self setNeedsDisplay:YES];
