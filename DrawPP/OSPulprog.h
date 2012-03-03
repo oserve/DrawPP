@@ -11,10 +11,8 @@
 #import "OSDelay.h"
 #import "OSChannel.h"
 #import "OSPowerLevel.h"
-#import "OSPulseProgramViewController.h"
-#import "OSPulseProgramViewDataSourceProtocol.h"
 
-@interface OSPulprog : NSPersistentDocument <OSPulseProgramViewDataSourceProtocol>{
+@interface OSPulprog : NSPersistentDocument <NSTableViewDataSource>{
 @private
 
 }
@@ -26,5 +24,5 @@
 - (void)moveChannel:(OSChannel *)channel toPosition:(NSInteger)position;
 - (void)removeChannel:(OSChannel *)channel;
 
-@property (retain) IBOutlet OSPulseProgramViewController * pulseProgramViewController;
+@property (retain) IBOutlet NSTableView * aTableView;
 @end
