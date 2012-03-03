@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface OSChannelView : NSButton
+@interface OSChannelView : NSTextField
 @property NSInteger positionOnGraph;
 @end

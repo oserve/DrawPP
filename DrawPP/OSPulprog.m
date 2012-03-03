@@ -10,7 +10,7 @@
 
 @implementation OSPulprog
 
-@synthesize pulseProgramViewController = _pulseProgramViewController;
+@synthesize aTableView = _aTableView;
 
 - (NSArray *)channelsInPulseProgram{
 	NSSortDescriptor * channelDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnGraph" ascending:YES];
@@ -24,13 +24,12 @@
 
 #pragma mark PulseProgramViewDataSource Protocol methods
 
-- (NSUInteger)numberOfChannelsInPulseProgramView:(OSPulseProgramView *)aPulseProgramView{
-	return [[self channelsInPulseProgram] count];
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
+    return [[self channelsInPulseProgram] count];
 }
 
-- (OSChannel *)pulseProgramView:(OSPulseProgramView *)aPulseProgramView channelForPosition:(NSUInteger)position{
-	return [[self channelsInPulseProgram] objectAtIndex:position];
-}
+#pragma mark
+#pragma mark Model management methods
 
 +(NSInteger)lastPositionAvailableOnChannel:(OSChannel *)channel{
 	NSSortDescriptor * channelEventDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnChannel" ascending:YES];
@@ -119,7 +118,7 @@
 
 - (IBAction)addChannel:(id)sender {
 	[self addChannelToProgram];
-	[self.pulseProgramViewController reloadViews];
+	[self.aTableView reloadData];
 }
 
 #pragma mark Nib methods
