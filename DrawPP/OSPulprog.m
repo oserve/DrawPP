@@ -10,7 +10,7 @@
 
 @implementation OSPulprog
 
-@synthesize aTableView = _aTableView;
+@synthesize pulseProgramView = _aTableView;
 
 - (NSArray *)channelsInPulseProgram{
 	NSSortDescriptor * channelDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnGraph" ascending:YES];
@@ -22,11 +22,30 @@
 	return channels;
 }
 
-#pragma mark PulseProgramViewDataSource Protocol methods
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
+- (NSInteger)numberOfChannelInPulseProgram{
     return [[self channelsInPulseProgram] count];
 }
+
+#pragma mark PulseProgramViewDataSource Protocol methods
+
+- (OSChannel *)channelForPosition:(NSUInteger)position{
+    OSChannel * resultChannel = nil;
+    NSFetchRequest * channelRequest = [NSFetchRequest fetchRequestWithEntityName:@"channel"];
+    NSPredicate * channelPredicate = [NSPredicate predicateWithFormat:@"positionOnGraph = %@",[NSNumber numberWithUnsignedInteger:position]];
+    channelRequest.predicate = channelPredicate;
+    NSError * error = nil;
+    NSArray * channels = [self.managedObjectContext executeFetchRequest:channelRequest error:&error];
+    if (channels) {
+        if ([channels count]==1) {
+            resultChannel = [channels objectAtIndex:0];
+        }
+        else {
+            NSLog(@"It seems there are %lu channels at position %lu.",[channels count], position);
+        }
+    }
+    return resultChannel;
+}
+
 
 #pragma mark
 #pragma mark Model management methods
@@ -118,7 +137,7 @@
 
 - (IBAction)addChannel:(id)sender {
 	[self addChannelToProgram];
-	[self.aTableView reloadData];
+	[self.pulseProgramView reloadData];
 }
 
 #pragma mark Nib methods

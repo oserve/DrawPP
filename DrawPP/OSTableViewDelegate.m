@@ -8,19 +8,28 @@
 
 #import "OSTableViewDelegate.h"
 #import "OSChannelView.h"
+#import "OSChannelViewDelegate.h"
 
 @implementation OSTableViewDelegate
 
+@synthesize dataSource = _dataSource;
+
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	OSChannelView *channelView = [tableView makeViewWithIdentifier:@"MyView" owner:self];
+	OSChannelView *channelView = [tableView makeViewWithIdentifier:@"channelView" owner:self];
     if(!channelView){
 		channelView = [[[OSChannelView alloc] init] autorelease];
-        channelView.identifier = @"MyView";
-        channelView.stringValue = @"Yo baby";
-        
+        channelView.identifier = @"channelView";
+        [channelView rotateByAngle:90];
 	}
-	return channelView;
-    
+	return channelView;    
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
+    return [self.dataSource numberOfChannelInPulseProgram];
+}
+
+- (OSChannelEvent *)channelEventForPosition:(NSUInteger)position{
+    return [self.dataSource channelEventInChannel:aChannel forPosition:position];
 }
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{

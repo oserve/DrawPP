@@ -1,5 +1,5 @@
 //
-//  OSTableViewDelegate.h
+//  OSChannelDataSourceProtocol.h
 //  DrawPP
 //
 //  Created by olivier on 03/03/12.
@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OSPulseProgramDataSourceProtocol.h"
-#import "OSChannelDataSourceProtocol.h"
 
-@interface OSTableViewDelegate : NSObject <NSTableViewDelegate, OSChannelDataSourceProtocol>
+@class OSChannelEvent;
+
+@protocol OSChannelDataSourceProtocol <NSObject>
+
 - (OSChannelEvent *)channelEventForPosition:(NSUInteger)position;
 - (NSArray *)channelEventsInChannel;
 - (NSInteger)numberOfChannelEventsInChannel;
-@property(retain) IBOutlet id <OSPulseProgramDataSourceProtocol> dataSource;
+
 @end
