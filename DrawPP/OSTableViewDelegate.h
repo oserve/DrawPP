@@ -10,9 +10,14 @@
 #import "OSPulseProgramDataSourceProtocol.h"
 #import "OSChannelDataSourceProtocol.h"
 
-@interface OSTableViewDelegate : NSObject <NSTableViewDelegate, OSChannelDataSourceProtocol>
-- (OSChannelEvent *)channelEventForPosition:(NSUInteger)position;
-- (NSArray *)channelEventsInChannel;
-- (NSInteger)numberOfChannelEventsInChannel;
-@property(retain) IBOutlet id <OSPulseProgramDataSourceProtocol> dataSource;
+@interface OSTableViewDelegate : NSObject <NSTableViewDelegate, NSTableViewDataSource, OSChannelDataSourceProtocol>
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
+
+- (NSInteger)numberOfChannelEventViewsInChannelView:(NSTableView *)channelView;
+
+@property(weak, atomic) IBOutlet id <OSPulseProgramDataSourceProtocol> dataSource;
+@property(strong, atomic) NSMutableDictionary * channelViewDictionary;
+@property(retain, atomic) NSMutableDictionary * channelViewDelegateDictionary;
 @end

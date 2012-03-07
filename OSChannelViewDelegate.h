@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "OSChannelDataSourceProtocol.h"
 
-@interface OSChannelViewDelegate : NSObject <NSTableViewDelegate>
-@property(retain) id <OSChannelDataSourceProtocol> dataSource;
+@interface OSChannelViewDelegate : NSObject <NSTableViewDelegate, NSTableViewDataSource>
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
+
+@property(weak,atomic) id <OSChannelDataSourceProtocol> dataSource;
 @end

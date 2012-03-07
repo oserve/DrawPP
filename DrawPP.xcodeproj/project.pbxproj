@@ -12,7 +12,6 @@
 		092A2B0B14FA52E000C2BA5D /* OSChannelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B0A14FA52E000C2BA5D /* OSChannelEvent.m */; };
 		092A2B0E14FA52E000C2BA5D /* OSPulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B0D14FA52E000C2BA5D /* OSPulse.m */; };
 		092A2B1A14FA7F9500C2BA5D /* OSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B1914FA7F9500C2BA5D /* OSChannel.m */; };
-		0930920414FC19C6004838BB /* OSChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0930920314FC19C6004838BB /* OSChannelView.m */; };
 		0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942B03D1501985F00F674CC /* OSTableViewDelegate.m */; };
 		0946659614BE3857005CAE76 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0946659514BE3857005CAE76 /* Cocoa.framework */; };
 		094665A014BE3857005CAE76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0946659E14BE3857005CAE76 /* InfoPlist.strings */; };
@@ -37,8 +36,6 @@
 		092A2B0D14FA52E000C2BA5D /* OSPulse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPulse.m; sourceTree = "<group>"; };
 		092A2B1814FA7F9500C2BA5D /* OSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannel.h; sourceTree = "<group>"; };
 		092A2B1914FA7F9500C2BA5D /* OSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannel.m; sourceTree = "<group>"; };
-		0930920214FC19C6004838BB /* OSChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelView.h; sourceTree = "<group>"; };
-		0930920314FC19C6004838BB /* OSChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelView.m; sourceTree = "<group>"; };
 		0942B03C1501985F00F674CC /* OSTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSTableViewDelegate.h; sourceTree = "<group>"; };
 		0942B03D1501985F00F674CC /* OSTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSTableViewDelegate.m; sourceTree = "<group>"; };
 		0946659114BE3857005CAE76 /* DrawPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,8 +93,6 @@
 		0930920914FC1A52004838BB /* View Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0930920214FC19C6004838BB /* OSChannelView.h */,
-				0930920314FC19C6004838BB /* OSChannelView.m */,
 				09F021521504209D00EDECD8 /* OSChannelEventView.h */,
 				09F021531504209D00EDECD8 /* OSChannelEventView.m */,
 			);
@@ -254,7 +249,6 @@
 				092A2B0B14FA52E000C2BA5D /* OSChannelEvent.m in Sources */,
 				092A2B0E14FA52E000C2BA5D /* OSPulse.m in Sources */,
 				092A2B1A14FA7F9500C2BA5D /* OSChannel.m in Sources */,
-				0930920414FC19C6004838BB /* OSChannelView.m in Sources */,
 				0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */,
 				09F021541504209D00EDECD8 /* OSChannelEventView.m in Sources */,
 				09F02157150423C100EDECD8 /* OSChannelViewDelegate.m in Sources */,
@@ -303,7 +297,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -321,7 +317,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

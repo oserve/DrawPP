@@ -28,5 +28,5 @@
 - (OSChannel *)channelForPosition:(NSUInteger)position;
 - (NSInteger)numberOfChannelInPulseProgram;
 
-@property (retain) IBOutlet NSTableView * pulseProgramView;
+@property (weak,atomic) IBOutlet NSTableView * pulseProgramView;
 @end

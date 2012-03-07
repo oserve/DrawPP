@@ -14,5 +14,4 @@
 - (OSChannel *)channelForPosition:(NSUInteger)position;
 - (NSArray *)channelsInPulseProgram;
 - (NSInteger)numberOfChannelInPulseProgram;
-
 @end

@@ -11,22 +11,20 @@
 
 @implementation OSChannelViewDelegate
 
-@synthesize dataSource=_dataSource;
+@synthesize dataSource = _dataSource;
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	OSChannelEventView *channelEventView = [tableView makeViewWithIdentifier:@"EventView" owner:self];
+	NSTextField *channelEventView = [tableView makeViewWithIdentifier:@"EventView" owner:self];
     if(!channelEventView){
-		channelEventView = [[[OSChannelEventView alloc] init] autorelease];
+		channelEventView = [[[NSTextField alloc] init] autorelease];
         channelEventView.identifier = @"EventView";
-        channelEventView.stringValue = @"Yo baby";
-        
+        channelEventView.stringValue = @"Yo baby";        
 	}
 	return channelEventView;
-    
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
-    return [self.dataSource numberOfChannelEventsInChannel];
+    return [self.dataSource numberOfChannelEventViewsInChannelView:tableView];
 }
 
 
