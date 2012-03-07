@@ -13,7 +13,6 @@
 		092A2B0E14FA52E000C2BA5D /* OSPulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B0D14FA52E000C2BA5D /* OSPulse.m */; };
 		092A2B1A14FA7F9500C2BA5D /* OSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B1914FA7F9500C2BA5D /* OSChannel.m */; };
 		0930920414FC19C6004838BB /* OSChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0930920314FC19C6004838BB /* OSChannelView.m */; };
-		0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942B03D1501985F00F674CC /* OSTableViewDelegate.m */; };
 		0946659614BE3857005CAE76 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0946659514BE3857005CAE76 /* Cocoa.framework */; };
 		094665A014BE3857005CAE76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0946659E14BE3857005CAE76 /* InfoPlist.strings */; };
 		094665A314BE3857005CAE76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 094665A214BE3857005CAE76 /* main.m */; };
@@ -37,8 +36,6 @@
 		092A2B1914FA7F9500C2BA5D /* OSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannel.m; sourceTree = "<group>"; };
 		0930920214FC19C6004838BB /* OSChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelView.h; sourceTree = "<group>"; };
 		0930920314FC19C6004838BB /* OSChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelView.m; sourceTree = "<group>"; };
-		0942B03C1501985F00F674CC /* OSTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSTableViewDelegate.h; sourceTree = "<group>"; };
-		0942B03D1501985F00F674CC /* OSTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSTableViewDelegate.m; sourceTree = "<group>"; };
 		0946659114BE3857005CAE76 /* DrawPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0946659514BE3857005CAE76 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0946659814BE3857005CAE76 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -161,8 +158,6 @@
 		09955D7814FD693B0079EFA5 /* viewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0942B03C1501985F00F674CC /* OSTableViewDelegate.h */,
-				0942B03D1501985F00F674CC /* OSTableViewDelegate.m */,
 			);
 			name = viewControllers;
 			sourceTree = "<group>";
@@ -241,7 +236,6 @@
 				092A2B0E14FA52E000C2BA5D /* OSPulse.m in Sources */,
 				092A2B1A14FA7F9500C2BA5D /* OSChannel.m in Sources */,
 				0930920414FC19C6004838BB /* OSChannelView.m in Sources */,
-				0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
