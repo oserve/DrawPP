@@ -13,8 +13,11 @@
 		092A2B0E14FA52E000C2BA5D /* OSPulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B0D14FA52E000C2BA5D /* OSPulse.m */; };
 		092A2B1A14FA7F9500C2BA5D /* OSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B1914FA7F9500C2BA5D /* OSChannel.m */; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		0930920414FC19C6004838BB /* OSChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0930920314FC19C6004838BB /* OSChannelView.m */; };
 =======
+=======
+>>>>>>> 6b9ea07d5b5d931a4bc9a545488b6d85e45104f9
 		0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942B03D1501985F00F674CC /* OSTableViewDelegate.m */; };
 >>>>>>> 6b9ea07d5b5d931a4bc9a545488b6d85e45104f9
 		0946659614BE3857005CAE76 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0946659514BE3857005CAE76 /* Cocoa.framework */; };
@@ -40,9 +43,12 @@
 		092A2B1814FA7F9500C2BA5D /* OSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannel.h; sourceTree = "<group>"; };
 		092A2B1914FA7F9500C2BA5D /* OSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannel.m; sourceTree = "<group>"; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		0930920214FC19C6004838BB /* OSChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelView.h; sourceTree = "<group>"; };
 		0930920314FC19C6004838BB /* OSChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelView.m; sourceTree = "<group>"; };
 =======
+=======
+>>>>>>> 6b9ea07d5b5d931a4bc9a545488b6d85e45104f9
 		0942B03C1501985F00F674CC /* OSTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSTableViewDelegate.h; sourceTree = "<group>"; };
 		0942B03D1501985F00F674CC /* OSTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSTableViewDelegate.m; sourceTree = "<group>"; };
 >>>>>>> 6b9ea07d5b5d931a4bc9a545488b6d85e45104f9
@@ -250,7 +256,12 @@
 				092A2B0E14FA52E000C2BA5D /* OSPulse.m in Sources */,
 				092A2B1A14FA7F9500C2BA5D /* OSChannel.m in Sources */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				0930920414FC19C6004838BB /* OSChannelView.m in Sources */,
+=======
+				0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */,
+				09F021541504209D00EDECD8 /* OSChannelEventView.m in Sources */,
+>>>>>>> 6b9ea07d5b5d931a4bc9a545488b6d85e45104f9
 =======
 				0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */,
 				09F021541504209D00EDECD8 /* OSChannelEventView.m in Sources */,
