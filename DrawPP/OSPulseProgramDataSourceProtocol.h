@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 @class OSChannel;
+@class OSChannelEvent;
 
 @protocol OSPulseProgramDataSourceProtocol <NSObject>
 
+- (NSInteger)numberOfChannelsInPulseProgram;
 - (OSChannel *)channelForPosition:(NSUInteger)position;
-- (NSArray *)channelsInPulseProgram;
-- (NSInteger)numberOfChannelInPulseProgram;
+- (NSInteger)numberOfChannelEventsinChannel:(OSChannel *)aChannel;
+- (OSChannelEvent *)channelEventIChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;
+
 @end

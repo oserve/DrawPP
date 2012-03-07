@@ -26,7 +26,10 @@
 - (void)removeChannel:(OSChannel *)channel;
 
 - (OSChannel *)channelForPosition:(NSUInteger)position;
-- (NSInteger)numberOfChannelInPulseProgram;
+- (NSInteger)numberOfChannelsInPulseProgram;
+- (NSInteger)numberOfChannelEventsinChannel:(OSChannel *)aChannel;
+- (OSChannelEvent *)channelEventIChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;
+
 
 @property (weak,atomic) IBOutlet NSTableView * pulseProgramView;
 @end
