@@ -10,7 +10,18 @@
 
 @implementation OSPulprog
 
-@synthesize aTableView = _aTableView;
+@synthesize pulseProgramView = _aTableView;
+
+
+#pragma mark OSPulseProgramDataSourceProtocol Protocol methods
+
+- (OSChannel *)channelForPosition:(NSUInteger)position{
+    OSChannel * resultChannel = nil;
+    if (position <= [self numberOfChannelsInPulseProgram]) {
+        resultChannel = [[self channelsInPulseProgram] objectAtIndex:position];
+    }
+    return resultChannel;
+}
 
 - (NSArray *)channelsInPulseProgram{
 	NSSortDescriptor * channelDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnGraph" ascending:YES];
@@ -22,13 +33,34 @@
 	return channels;
 }
 
-#pragma mark PulseProgramViewDataSource Protocol methods
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
+- (NSInteger)numberOfChannelsInPulseProgram{
     return [[self channelsInPulseProgram] count];
 }
 
-#pragma mark
+- (NSArray *)channelEventsinChannel:(OSChannel *)aChannel{
+    NSSortDescriptor * channelEventDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnChannel" ascending:YES];
+	NSFetchRequest * channelEventRequest = [NSFetchRequest fetchRequestWithEntityName:@"ChannelEvent"];
+	channelEventRequest.sortDescriptors = [NSArray arrayWithObject:channelEventDescriptor];
+	[channelEventDescriptor release];
+	NSPredicate * channelPredicate = [NSPredicate predicateWithFormat:@"channel = %@",aChannel];
+	channelEventRequest.predicate = channelPredicate;
+	NSError * error = nil;
+	return [self.managedObjectContext executeFetchRequest:channelEventRequest error:&error];;    
+}
+
+- (NSInteger)numberOfChannelEventsinChannel:(OSChannel *)aChannel{
+    //return [[self channelEventsinChannel:aChannel] count];
+    return 2;
+}
+
+- (OSChannelEvent *)channelEventIChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position{
+    OSChannelEvent * theChannelEvent = nil;
+    if (position < [[self channelEventsinChannel:aChannel] count]) {
+        theChannelEvent = [[self channelEventsinChannel:aChannel] objectAtIndex:position];
+    }
+    return theChannelEvent;
+}
+
 #pragma mark Model management methods
 
 +(NSInteger)lastPositionAvailableOnChannel:(OSChannel *)channel{
@@ -118,7 +150,7 @@
 
 - (IBAction)addChannel:(id)sender {
 	[self addChannelToProgram];
-	[self.aTableView reloadData];
+	[self.pulseProgramView reloadData];
 }
 
 #pragma mark Nib methods
