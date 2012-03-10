@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090BBFE3150B8AE500E3E489 /* OSPulseProgramController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */; };
 		092A2B0214FA52E000C2BA5D /* OSPowerLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B0114FA52E000C2BA5D /* OSPowerLevel.m */; };
 		092A2B0814FA52E000C2BA5D /* OSDelay.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B0714FA52E000C2BA5D /* OSDelay.m */; };
 		092A2B0B14FA52E000C2BA5D /* OSChannelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A2B0A14FA52E000C2BA5D /* OSChannelEvent.m */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090BBFE1150B8AE500E3E489 /* OSPulseProgramController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPulseProgramController.h; sourceTree = "<group>"; };
+		090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPulseProgramController.m; sourceTree = "<group>"; };
 		092A2B0014FA52E000C2BA5D /* OSPowerLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPowerLevel.h; sourceTree = "<group>"; };
 		092A2B0114FA52E000C2BA5D /* OSPowerLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPowerLevel.m; sourceTree = "<group>"; };
 		092A2B0614FA52E000C2BA5D /* OSDelay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSDelay.h; sourceTree = "<group>"; };
@@ -137,13 +140,15 @@
 				09955D7814FD693B0079EFA5 /* TableViews Delegates */,
 				0930920914FC1A52004838BB /* View Classes */,
 				092A2B0F14FA635B00C2BA5D /* Model Classes */,
+				090BBFE1150B8AE500E3E489 /* OSPulseProgramController.h */,
+				090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */,
 				094665A714BE3857005CAE76 /* OSPulprog.h */,
 				094665A814BE3857005CAE76 /* OSPulprog.m */,
 				094665AA14BE3857005CAE76 /* OSPulprog.xib */,
 				094665AD14BE3857005CAE76 /* MainMenu.xib */,
 				094665B014BE3857005CAE76 /* OSPulprog.xcdatamodeld */,
-				0946659C14BE3857005CAE76 /* Supporting Files */,
 				09F2D7DC1502D2A200E47851 /* OSPulseProgramDataSourceProtocol.h */,
+				0946659C14BE3857005CAE76 /* Supporting Files */,
 			);
 			path = DrawPP;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				092A2B1A14FA7F9500C2BA5D /* OSChannel.m in Sources */,
 				0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */,
 				09F021541504209D00EDECD8 /* OSChannelEventView.m in Sources */,
+				090BBFE3150B8AE500E3E489 /* OSPulseProgramController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

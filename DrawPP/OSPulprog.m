@@ -10,18 +10,8 @@
 
 @implementation OSPulprog
 
-@synthesize pulseProgramView = _aTableView;
-
-
 #pragma mark OSPulseProgramDataSourceProtocol Protocol methods
 
-- (OSChannel *)channelForPosition:(NSUInteger)position{
-    OSChannel * resultChannel = nil;
-    if (position <= [self numberOfChannelsInPulseProgram]) {
-        resultChannel = [[self channelsInPulseProgram] objectAtIndex:position];
-    }
-    return resultChannel;
-}
 
 - (NSArray *)channelsInPulseProgram{
 	NSSortDescriptor * channelDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnGraph" ascending:YES];
@@ -31,6 +21,14 @@
 	NSError * error = nil;
 	NSArray * channels = [self.managedObjectContext executeFetchRequest:channelRequest error:&error];
 	return channels;
+}
+
+- (OSChannel *)channelForPosition:(NSUInteger)position{
+    OSChannel * resultChannel = nil;
+    if (position <= [self numberOfChannelsInPulseProgram]) {
+        resultChannel = [[self channelsInPulseProgram] objectAtIndex:position];
+    }
+    return resultChannel;
 }
 
 - (NSInteger)numberOfChannelsInPulseProgram{
@@ -49,8 +47,8 @@
 }
 
 - (NSInteger)numberOfChannelEventsinChannel:(OSChannel *)aChannel{
-    //return [[self channelEventsinChannel:aChannel] count];
-    return 2;
+	return [[self channelEventsinChannel:aChannel] count];
+//    return 2;
 }
 
 - (OSChannelEvent *)channelEventIChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position{
@@ -63,7 +61,7 @@
 
 #pragma mark Model management methods
 
-+(NSInteger)lastPositionAvailableOnChannel:(OSChannel *)channel{
+- (NSInteger)lastPositionAvailableOnChannel:(OSChannel *)channel{
 	NSSortDescriptor * channelEventDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnChannel" ascending:YES];
 	NSFetchRequest * channelEventRequest = [NSFetchRequest fetchRequestWithEntityName:@"ChannelEvent"];
 	channelEventRequest.sortDescriptors = [NSArray arrayWithObject:channelEventDescriptor];
@@ -71,7 +69,7 @@
 	NSPredicate * channelPredicate = [NSPredicate predicateWithFormat:@"channel = %@",channel];
 	channelEventRequest.predicate = channelPredicate;
 	NSError * error = nil;
-	NSArray * channelEvents = [channel.managedObjectContext executeFetchRequest:channelEventRequest error:&error];
+	NSArray * channelEvents = [self.managedObjectContext executeFetchRequest:channelEventRequest error:&error];
 	return [channelEvents count];
 }
 
@@ -86,7 +84,7 @@
 
 #pragma mark Creation of new elements
 
-- (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position;
+- (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position
 {
 	NSManagedObjectContext * moc = self.managedObjectContext;
 	
@@ -95,23 +93,23 @@
 	aPulse.positionOnChannel = [NSNumber numberWithInteger:position];
 	aPulse.length = [NSNumber numberWithFloat:1.0];
 	
-	OSPowerLevel * powerLevel = nil;
-	NSSet * powerLevels = channel.powerLevels;
-	if (![powerLevels count]) {
-		powerLevel = [NSEntityDescription insertNewObjectForEntityForName:@"PowerLevel" inManagedObjectContext:moc];
-		powerLevel.power = [NSNumber numberWithFloat:1.0];
-		powerLevel.channel = channel;
-		powerLevel.name = @"pl1";
-	}
-	else {
-		for (OSPowerLevel * aPowerLevel in powerLevels) {
-			if ([aPowerLevel.power floatValue] == 1.0) {
-				powerLevel = aPowerLevel;
-				break;
-			}
-		}
-	}
-	aPulse.powerLevel = powerLevel;
+//	OSPowerLevel * powerLevel = nil;
+//	NSSet * powerLevels = channel.powerLevels;
+//	if (![powerLevels count]) {
+//		powerLevel = [NSEntityDescription insertNewObjectForEntityForName:@"PowerLevel" inManagedObjectContext:moc];
+//		powerLevel.power = [NSNumber numberWithFloat:1.0];
+//		powerLevel.channel = channel;
+//		powerLevel.name = @"pl1";
+//	}
+//	else {
+//		for (OSPowerLevel * aPowerLevel in powerLevels) {
+//			if ([aPowerLevel.power floatValue] == 1.0) {
+//				powerLevel = aPowerLevel;
+//				break;
+//			}
+//		}
+//	}
+//	aPulse.powerLevel = powerLevel;
 	
 }
 - (void)addChannelToProgram{	
@@ -120,8 +118,19 @@
 	OSChannel * aChannel = [NSEntityDescription insertNewObjectForEntityForName:@"Channel" inManagedObjectContext:self.managedObjectContext];
 	aChannel.positionOnGraph = [NSNumber numberWithInteger:newChannelPosition];
 	aChannel.name = @"X";
+
 	if (!newChannelPosition) {
 		aChannel.isAcquisitionChannel = [NSNumber numberWithBool:YES];
+		[self addNewDelayToChannel:aChannel atPosition:0];
+		[self addNewPulseToChannel:aChannel atPosition:1];
+		[self addNewDelayToChannel:aChannel atPosition:2];
+	}
+
+	else {
+		NSInteger eventPosition = 0;
+		for (eventPosition=0;eventPosition < [self lastPositionAvailableOnChannel:[[self channelsInPulseProgram] objectAtIndex:0]]; eventPosition++) {
+			[self addNewDelayToChannel:aChannel atPosition:eventPosition];
+		}
 	}
 }
 
@@ -146,12 +155,6 @@
 	
 }
 
-#pragma mark UI Actions methods
-
-- (IBAction)addChannel:(id)sender {
-	[self addChannelToProgram];
-	[self.pulseProgramView reloadData];
-}
 
 #pragma mark Nib methods
 
