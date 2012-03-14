@@ -15,4 +15,5 @@
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 
 @property(weak, atomic) IBOutlet id <OSPulseProgramDataSourceProtocol> dataSource;
+@property(weak, atomic) IBOutlet id pulseProgramController;
 @end

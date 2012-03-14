@@ -73,12 +73,12 @@
 	return [channelEvents count];
 }
 
-- (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position;
+- (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position
 {	
 	OSDelay * aDelay = [NSEntityDescription insertNewObjectForEntityForName:@"Delay" inManagedObjectContext:self.managedObjectContext];
 	aDelay.channel =channel;
 	aDelay.positionOnChannel = [NSNumber numberWithInteger:position];
-	aDelay.length = [NSNumber numberWithFloat:1.0];
+	aDelay.length = [NSNumber numberWithFloat:100.0];
 		
 }
 
@@ -91,7 +91,7 @@
 	OSPulse * aPulse = [NSEntityDescription insertNewObjectForEntityForName:@"Pulse" inManagedObjectContext:moc];
 	aPulse.channel = channel;
 	aPulse.positionOnChannel = [NSNumber numberWithInteger:position];
-	aPulse.length = [NSNumber numberWithFloat:1.0];
+	aPulse.length = [NSNumber numberWithFloat:100.0];
 	
 //	OSPowerLevel * powerLevel = nil;
 //	NSSet * powerLevels = channel.powerLevels;
@@ -137,11 +137,11 @@
 #pragma mark Deletion of elements
 
 - (void)removeChannelEvent:(OSChannelEvent *)aChannelEvent{
-	
+	[self.managedObjectContext deleteObject:aChannelEvent];
 }
 
 - (void)removeChannel:(OSChannel *)channel{
-	
+	[self.managedObjectContext deleteObject:channel];
 }
 
 

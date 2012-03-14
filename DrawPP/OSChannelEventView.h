@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface OSChannelEventView : NSTextField
+@interface OSChannelEventView : NSView
 
+@property(weak, atomic) IBOutlet NSButton * addButton;
+@property(weak, atomic) IBOutlet NSButton * editButton;
 @end

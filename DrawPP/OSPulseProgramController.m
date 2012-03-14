@@ -24,14 +24,49 @@
 	[self.pulseProgramView reloadData];
 }
 
+- (IBAction)RemoveChannel:(id)sender {
+	NSInteger channelPosition =[self.pulseProgramView selectedRow];
+	if (channelPosition != -1) {
+		[self.dataSource removeChannel:[self.dataSource channelForPosition:channelPosition]];
+		[self.pulseProgramView reloadData];
+
+	}
+}
+
 - (IBAction)AddPulse:(id)sender {
 	NSInteger channelPosition =[self.pulseProgramView selectedRow];
-	[self.dataSource addNewPulseToChannel:[self.dataSource channelForPosition:channelPosition] atPosition:[self.dataSource lastPositionAvailableOnChannel:[self.dataSource channelForPosition:channelPosition]]];
+	if (channelPosition != -1) {
+		[self.dataSource addNewPulseToChannel:[self.dataSource channelForPosition:channelPosition] atPosition:[self.dataSource lastPositionAvailableOnChannel:[self.dataSource channelForPosition:channelPosition]]];
+		
+		NSTableColumn * newColumn = [[[NSTableColumn alloc] init] autorelease];
+		[self.pulseProgramView addTableColumn:newColumn];
+		[self.pulseProgramView reloadData];
+	}
+}
 
-	NSTableColumn * newColumn = [[[NSTableColumn alloc] init] autorelease];
-	[self.pulseProgramView addTableColumn:newColumn];
+- (IBAction)AddDelay:(id)sender {
+	NSInteger channelPosition =[self.pulseProgramView selectedRow];
+	if (channelPosition != -1) {
+		[self.dataSource addNewDelayToChannel:[self.dataSource channelForPosition:channelPosition] atPosition:[self.dataSource lastPositionAvailableOnChannel:[self.dataSource channelForPosition:channelPosition]]];
+		
+		NSTableColumn * newColumn = [[[NSTableColumn alloc] init] autorelease];
+		[self.pulseProgramView addTableColumn:newColumn];
+		[self.pulseProgramView reloadData];
+	}	
+}
+
+- (IBAction)removeChannelEvent:(id)sender {
+	NSInteger channelPosition =[self.pulseProgramView selectedRow];
+	if (channelPosition != -1) {
+		OSChannel * selectedChannel = [self.dataSource channelForPosition:channelPosition];
+		NSInteger eventPosition = [self.pulseProgramView selectedColumn];
+		if (eventPosition != -1) {
+			OSChannelEvent * selectedEvent = [self.dataSource channelEventIChannel:selectedChannel atPosition:eventPosition];
+			[self.dataSource removeChannelEvent:selectedEvent];
+			[self.dataSource addNewDelayToChannel:selectedChannel atPosition:[self.dataSource lastPositionAvailableOnChannel:selectedChannel]];
+		}
+	}
 	[self.pulseProgramView reloadData];
-
 }
 
 @end

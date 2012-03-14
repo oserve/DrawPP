@@ -25,7 +25,12 @@
 
 #pragma mark Interface controller datasource methods
 - (void)addChannelToProgram;
-- (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position;
+- (void)removeChannel:(OSChannel *)channel;
+
 - (NSInteger)lastPositionAvailableOnChannel:(OSChannel *)channel;
+
+- (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position;
+- (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position;
+- (void)removeChannelEvent:(OSChannelEvent *)aChannelEvent;
 
 @end
