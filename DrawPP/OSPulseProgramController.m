@@ -7,11 +7,13 @@
 //
 
 #import "OSPulseProgramController.h"
+#import "OSChannelEvent+utilities.h"
 
 @implementation OSPulseProgramController
 
-@synthesize pulseProgramView = _aTableView;
+@synthesize pulseProgramView = _pulseProgramView;
 @synthesize dataSource = _dataSource;
+@synthesize channelControllers = _channelControllers; //Implement new class channelController
 
 #pragma mark UI Actions methods
 
@@ -33,13 +35,23 @@
 	}
 }
 
+
+- (void)addNewChannelEventInPulseProgramAtPosition:(NSInteger)position{
+	NSArray * allChannels = [self.dataSource channelsInPulseProgram];
+	for (OSChannel * aChannel in allChannels) {
+		[self.dataSource addNewDelayToChannel:aChannel atPosition:position];
+	}
+	NSTableColumn * newColumn = [[[NSTableColumn alloc] init] autorelease];
+	[self.pulseProgramView addTableColumn:newColumn];
+	
+}
+
 - (IBAction)AddPulse:(id)sender {
 	NSInteger channelPosition =[self.pulseProgramView selectedRow];
 	if (channelPosition != -1) {
-		[self.dataSource addNewPulseToChannel:[self.dataSource channelForPosition:channelPosition] atPosition:[self.dataSource lastPositionAvailableOnChannel:[self.dataSource channelForPosition:channelPosition]]];
+//		[self addNewChannelEventInPulseProgramAtPosition:channelPosition];
+		//if pulse make it so, need to know the channel
 		
-		NSTableColumn * newColumn = [[[NSTableColumn alloc] init] autorelease];
-		[self.pulseProgramView addTableColumn:newColumn];
 		[self.pulseProgramView reloadData];
 	}
 }
@@ -47,10 +59,7 @@
 - (IBAction)AddDelay:(id)sender {
 	NSInteger channelPosition =[self.pulseProgramView selectedRow];
 	if (channelPosition != -1) {
-		[self.dataSource addNewDelayToChannel:[self.dataSource channelForPosition:channelPosition] atPosition:[self.dataSource lastPositionAvailableOnChannel:[self.dataSource channelForPosition:channelPosition]]];
-		
-		NSTableColumn * newColumn = [[[NSTableColumn alloc] init] autorelease];
-		[self.pulseProgramView addTableColumn:newColumn];
+//		[self addNewChannelEventInPulseProgramAtPosition:channelPosition];		
 		[self.pulseProgramView reloadData];
 	}	
 }

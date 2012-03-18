@@ -2,28 +2,28 @@
 //  OSPowerLevel.h
 //  DrawPP
 //
-//  Created by Olivier Serve on 26/02/12.
+//  Created by Olivier Serve on 17/03/12.
 //  Copyright (c) 2012 MyOwnCompany. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class OSChannel, OSPulse;
+@class OSChannel, OSChannelEvent;
 
 @interface OSPowerLevel : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * power;
 @property (nonatomic, retain) OSChannel *channel;
-@property (nonatomic, retain) NSSet *pulses;
+@property (nonatomic, retain) NSSet *channelEvents;
 @end
 
 @interface OSPowerLevel (CoreDataGeneratedAccessors)
 
-- (void)addPulsesObject:(OSPulse *)value;
-- (void)removePulsesObject:(OSPulse *)value;
-- (void)addPulses:(NSSet *)values;
-- (void)removePulses:(NSSet *)values;
+- (void)addChannelEventsObject:(OSChannelEvent *)value;
+- (void)removeChannelEventsObject:(OSChannelEvent *)value;
+- (void)addChannelEvents:(NSSet *)values;
+- (void)removeChannelEvents:(NSSet *)values;
 
 @end

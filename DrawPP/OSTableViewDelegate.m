@@ -9,7 +9,7 @@
 #import "OSTableViewDelegate.h"
 #import "OSChannelEventView.h"
 #import "OSChannel.h"
-#import "OSDelay.h"
+#import "OSChannelEvent+utilities.h"
 
 @implementation OSTableViewDelegate
 
@@ -24,12 +24,12 @@
 	channelView.identifier = @"channelView";
 
 //	channelView.textColor = [NSColor blueColor];
-	if ([[self.dataSource channelEventIChannel:[self.dataSource channelForPosition:row] atPosition:[[tableView tableColumns] indexOfObject:tableColumn]] isKindOfClass:[OSDelay class]]) {
+//	if ([[self.dataSource channelEventIChannel:[self.dataSource channelForPosition:row] atPosition:[[tableView tableColumns] indexOfObject:tableColumn]] isKindOfClass:[OSDelay class]]) {
 //		channelView.stringValue = @"wait baby";
-	}
-	else{
+//	}
+//	else{
 //		channelView.stringValue = @"yo baby";
-	}
+//	}
 	[[tableColumn headerCell] setStringValue:@""];
 	return channelView;    
 }

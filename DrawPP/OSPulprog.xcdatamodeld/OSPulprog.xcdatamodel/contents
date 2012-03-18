@@ -5,37 +5,29 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="nucleus" optional="YES" attributeType="String"/>
         <attribute name="piPulseLength" optional="YES" attributeType="Float" defaultValueString="0"/>
-        <attribute name="positionOnGraph" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
-        <relationship name="delays" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Delay" inverseName="channel" inverseEntity="Delay" syncable="YES"/>
+        <attribute name="positionOnGraph" optional="YES" attributeType="Integer 16"/>
+        <relationship name="channelEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChannelEvent" inverseName="channel" inverseEntity="ChannelEvent" syncable="YES"/>
         <relationship name="powerLevels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PowerLevel" inverseName="channel" inverseEntity="PowerLevel" syncable="YES"/>
-        <relationship name="pulses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pulse" inverseName="channel" inverseEntity="Pulse" syncable="YES"/>
     </entity>
-    <entity name="ChannelEvent" representedClassName="OSChannelEvent" isAbstract="YES" syncable="YES">
+    <entity name="ChannelEvent" representedClassName="OSChannelEvent" syncable="YES">
         <attribute name="length" optional="YES" attributeType="Float" defaultValueString="0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="positionOnChannel" optional="YES" attributeType="Float" defaultValueString="0"/>
+        <attribute name="phase" optional="YES" attributeType="String"/>
+        <attribute name="positionOnChannel" optional="YES" attributeType="Integer 16"/>
+        <attribute name="shape" optional="YES" attributeType="String" defaultValueString="square"/>
+        <relationship name="channel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="channelEvents" inverseEntity="Channel" syncable="YES"/>
+        <relationship name="powerLevel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PowerLevel" inverseName="channelEvents" inverseEntity="PowerLevel" syncable="YES"/>
         <relationship name="sameLengthAs" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ChannelEvent" inverseName="sameLengthAs" inverseEntity="ChannelEvent" syncable="YES"/>
-    </entity>
-    <entity name="Delay" representedClassName="OSDelay" parentEntity="ChannelEvent" syncable="YES">
-        <relationship name="channel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="delays" inverseEntity="Channel" indexed="YES"/>
     </entity>
     <entity name="PowerLevel" representedClassName="OSPowerLevel" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="power" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="channel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="powerLevels" inverseEntity="Channel" syncable="YES"/>
-        <relationship name="pulses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pulse" inverseName="powerLevel" inverseEntity="Pulse" syncable="YES"/>
-    </entity>
-    <entity name="Pulse" representedClassName="OSPulse" parentEntity="ChannelEvent">
-        <attribute name="phase" optional="YES" attributeType="String"/>
-        <attribute name="shape" optional="YES" attributeType="String" defaultValueString="square"/>
-        <relationship name="channel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="pulses" inverseEntity="Channel" syncable="YES"/>
-        <relationship name="powerLevel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PowerLevel" inverseName="pulses" inverseEntity="PowerLevel" syncable="YES"/>
+        <relationship name="channelEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChannelEvent" inverseName="powerLevel" inverseEntity="ChannelEvent" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Channel" positionX="1026" positionY="-234" width="128" height="165"/>
-        <element name="ChannelEvent" positionX="945" positionY="-843" width="128" height="105"/>
-        <element name="Delay" positionX="1107" positionY="-672" width="128" height="105"/>
+        <element name="Channel" positionX="925" positionY="-633" width="128" height="150"/>
+        <element name="ChannelEvent" positionX="738" positionY="-729" width="144" height="165"/>
         <element name="PowerLevel" positionX="556" positionY="-549" width="128" height="105"/>
-        <element name="Pulse" positionX="837" positionY="-513" width="128" height="105"/>
     </elements>
 </model>

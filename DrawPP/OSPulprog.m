@@ -10,7 +10,9 @@
 
 @implementation OSPulprog
 
-#pragma mark OSPulseProgramDataSourceProtocol Protocol methods
+#define DEFAULT_LENTGH 100.0
+
+#pragma mark OSChannelEventProgramDataSourceProtocol Protocol methods
 
 
 - (NSArray *)channelsInPulseProgram{
@@ -43,7 +45,7 @@
 	NSPredicate * channelPredicate = [NSPredicate predicateWithFormat:@"channel = %@",aChannel];
 	channelEventRequest.predicate = channelPredicate;
 	NSError * error = nil;
-	return [self.managedObjectContext executeFetchRequest:channelEventRequest error:&error];;    
+	return [self.managedObjectContext executeFetchRequest:channelEventRequest error:&error];    
 }
 
 - (NSInteger)numberOfChannelEventsinChannel:(OSChannel *)aChannel{
@@ -57,6 +59,17 @@
         theChannelEvent = [[self channelEventsinChannel:aChannel] objectAtIndex:position];
     }
     return theChannelEvent;
+}
+
+-(void)insertNewChannelEvent:(OSChannelEvent *)anEvent InChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position{
+	NSArray * allEvents = [self channelEventsinChannel:aChannel];
+	for (OSChannelEvent * event in allEvents) {
+		if (event.positionOnChannel.integerValue > position) {
+			event.positionOnChannel = [NSNumber numberWithInteger:event.positionOnChannel.integerValue +1 ];
+		}
+	}
+	anEvent.positionOnChannel = [NSNumber numberWithInteger:position];
+	anEvent.channel = aChannel;
 }
 
 #pragma mark Model management methods
@@ -75,11 +88,9 @@
 
 - (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position
 {	
-	OSDelay * aDelay = [NSEntityDescription insertNewObjectForEntityForName:@"Delay" inManagedObjectContext:self.managedObjectContext];
-	aDelay.channel =channel;
-	aDelay.positionOnChannel = [NSNumber numberWithInteger:position];
-	aDelay.length = [NSNumber numberWithFloat:100.0];
-		
+	OSChannelEvent * aDelay = [NSEntityDescription insertNewObjectForEntityForName:@"ChannelEvent" inManagedObjectContext:self.managedObjectContext];
+	aDelay.length = [NSNumber numberWithFloat:DEFAULT_LENTGH];
+	[self insertNewChannelEvent:aDelay InChannel:channel atPosition:position];
 }
 
 #pragma mark Creation of new elements
@@ -88,10 +99,8 @@
 {
 	NSManagedObjectContext * moc = self.managedObjectContext;
 	
-	OSPulse * aPulse = [NSEntityDescription insertNewObjectForEntityForName:@"Pulse" inManagedObjectContext:moc];
-	aPulse.channel = channel;
-	aPulse.positionOnChannel = [NSNumber numberWithInteger:position];
-	aPulse.length = [NSNumber numberWithFloat:100.0];
+	OSChannelEvent * aPulse = [NSEntityDescription insertNewObjectForEntityForName:@"ChannelEvent" inManagedObjectContext:moc];
+	aPulse.length = [NSNumber numberWithFloat:DEFAULT_LENTGH];
 	
 //	OSPowerLevel * powerLevel = nil;
 //	NSSet * powerLevels = channel.powerLevels;
@@ -110,6 +119,7 @@
 //		}
 //	}
 //	aPulse.powerLevel = powerLevel;
+	[self insertNewChannelEvent:aPulse InChannel:channel atPosition:position];
 	
 }
 - (void)addChannelToProgram{	
@@ -138,6 +148,7 @@
 
 - (void)removeChannelEvent:(OSChannelEvent *)aChannelEvent{
 	[self.managedObjectContext deleteObject:aChannelEvent];
+	
 }
 
 - (void)removeChannel:(OSChannel *)channel{
@@ -147,8 +158,28 @@
 
 #pragma mark Move elements
 
-- (void)moveChannelEventToPosition:(OSChannelEvent *)aChannelEvent{
-	
+- (void)moveChannelEvent:(OSChannelEvent *)aChannelEvent ToPosition:(NSInteger)position{
+	NSMutableArray * allEvents = [[self channelEventsinChannel:aChannelEvent.channel] mutableCopy];
+	OSChannel * currentChannel = aChannelEvent.channel;
+//Resort channelEvents in currentChannel
+	[allEvents removeObject:aChannelEvent];
+	[allEvents insertObject:aChannelEvent atIndex:position];//Leave the sorting to apple's experts
+	NSInteger newPosition = 0;
+	for (OSChannelEvent * event in allEvents) {
+		event.positionOnChannel = [NSNumber numberWithInteger:newPosition];
+		newPosition +=1;
+	}
+	//Should also adjust the length to other events at the same position on other channels if any
+
+	if ([[self channelsInPulseProgram] count] > 1) {
+		for (OSChannel * aChannel in [self channelsInPulseProgram]) {
+			if (aChannel != currentChannel) {
+				aChannelEvent.length = [NSNumber numberWithInteger:[[[self channelEventsinChannel:aChannel] objectAtIndex:position] length]];
+				break;
+			}
+		}
+	}
+	currentChannel.channelEvents = [NSSet setWithArray:allEvents];
 }
 
 - (void)moveChannel:(OSChannel *)channel toPosition:(NSInteger)position{

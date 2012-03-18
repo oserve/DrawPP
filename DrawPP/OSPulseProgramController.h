@@ -11,5 +11,6 @@
 @interface OSPulseProgramController : NSObject
 
 @property (weak,atomic) IBOutlet NSTableView * pulseProgramView;
-@property (weak, atomic) IBOutlet OSPulprog * dataSource;
+@property (weak, atomic) IBOutlet OSPulprog * dataSource; //Replace by a protocol
+@property (strong, atomic) NSMutableArray * channelControllers;//Maybe NSMutableDictionnary would be more suitable
 @end

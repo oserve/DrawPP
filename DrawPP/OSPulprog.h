@@ -7,10 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "OSPulse.h"
-#import "OSDelay.h"
-#import "OSChannel.h"
+#import "OSChannelEvent+utilities.h"
 #import "OSPowerLevel.h"
+#import "OSChannel.h"
 #import "OSPulseProgramDataSourceProtocol.h"
 
 @interface OSPulprog : NSPersistentDocument <OSPulseProgramDataSourceProtocol>{
@@ -28,6 +27,7 @@
 - (void)removeChannel:(OSChannel *)channel;
 
 - (NSInteger)lastPositionAvailableOnChannel:(OSChannel *)channel;
+- (NSArray *)channelsInPulseProgram;
 
 - (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position;
 - (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position;
