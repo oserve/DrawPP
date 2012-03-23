@@ -2,7 +2,7 @@
 //  OSChannel.m
 //  DrawPP
 //
-//  Created by Olivier Serve on 17/03/12.
+//  Created by Olivier Serve on 23/03/12.
 //  Copyright (c) 2012 MyOwnCompany. All rights reserved.
 //
 
@@ -18,7 +18,7 @@
 @dynamic nucleus;
 @dynamic piPulseLength;
 @dynamic positionOnGraph;
-@dynamic powerLevels;
 @dynamic channelEvents;
+@dynamic powerLevels;
 
 @end

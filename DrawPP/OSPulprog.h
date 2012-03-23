@@ -10,9 +10,12 @@
 #import "OSChannelEvent+utilities.h"
 #import "OSPowerLevel.h"
 #import "OSChannel.h"
+#import "OSLength.h"
 #import "OSPulseProgramDataSourceProtocol.h"
+#import "OSPulseProgramControllerDataSourceProtocol.h"
+#import "OSChannelEventArrayControllerDataSourceProtocol.h"
 
-@interface OSPulprog : NSPersistentDocument <OSPulseProgramDataSourceProtocol>{
+@interface OSPulprog : NSPersistentDocument <OSPulseProgramDataSourceProtocol, OSPulseProgramControllerDataSourceProtocol, OSChannelEventArrayControllerDataSourceProtocol>{
 @private
 
 }

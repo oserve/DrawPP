@@ -11,9 +11,9 @@
 @implementation OSPulprog
 
 #define DEFAULT_LENTGH 100.0
+#define DEFAULT_POWER 10.0
 
-#pragma mark OSChannelEventProgramDataSourceProtocol Protocol methods
-
+#pragma mark OSPulseProgramDataSourceProtocol Protocol methods
 
 - (NSArray *)channelsInPulseProgram{
 	NSSortDescriptor * channelDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnGraph" ascending:YES];
@@ -68,6 +68,9 @@
 			event.positionOnChannel = [NSNumber numberWithInteger:event.positionOnChannel.integerValue +1 ];
 		}
 	}
+	OSLength * aLength = [NSEntityDescription insertNewObjectForEntityForName:@"Length" inManagedObjectContext:self.managedObjectContext];
+	aLength.duration = [NSNumber numberWithFloat:DEFAULT_LENTGH];
+	anEvent.length = aLength;
 	anEvent.positionOnChannel = [NSNumber numberWithInteger:position];
 	anEvent.channel = aChannel;
 }
@@ -89,7 +92,6 @@
 - (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position
 {	
 	OSChannelEvent * aDelay = [NSEntityDescription insertNewObjectForEntityForName:@"ChannelEvent" inManagedObjectContext:self.managedObjectContext];
-	aDelay.length = [NSNumber numberWithFloat:DEFAULT_LENTGH];
 	[self insertNewChannelEvent:aDelay InChannel:channel atPosition:position];
 }
 
@@ -100,7 +102,9 @@
 	NSManagedObjectContext * moc = self.managedObjectContext;
 	
 	OSChannelEvent * aPulse = [NSEntityDescription insertNewObjectForEntityForName:@"ChannelEvent" inManagedObjectContext:moc];
-	aPulse.length = [NSNumber numberWithFloat:DEFAULT_LENTGH];
+	OSPowerLevel * aPowerLevel = [NSEntityDescription insertNewObjectForEntityForName:@"PowerLevel" inManagedObjectContext:moc];
+	aPowerLevel.power = [NSNumber numberWithFloat:DEFAULT_POWER];
+	aPulse.powerLevel = aPowerLevel;
 	
 //	OSPowerLevel * powerLevel = nil;
 //	NSSet * powerLevels = channel.powerLevels;
@@ -174,7 +178,7 @@
 	if ([[self channelsInPulseProgram] count] > 1) {
 		for (OSChannel * aChannel in [self channelsInPulseProgram]) {
 			if (aChannel != currentChannel) {
-				aChannelEvent.length = [NSNumber numberWithInteger:[[[self channelEventsinChannel:aChannel] objectAtIndex:position] length]];
+				aChannelEvent.length.duration = [NSNumber numberWithInteger:[[[self channelEventsinChannel:aChannel] objectAtIndex:position] length]];
 				break;
 			}
 		}

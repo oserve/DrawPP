@@ -12,4 +12,5 @@
 
 @property(weak, atomic) IBOutlet NSButton * addButton;
 @property(weak, atomic) IBOutlet NSButton * editButton;
+@property(weak, atomic) IBOutlet NSTextField * tempField;
 @end

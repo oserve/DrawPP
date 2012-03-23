@@ -12,7 +12,7 @@
 
 @synthesize addButton= _addButton;
 @synthesize editButton = _editButton;
-
+@synthesize tempField = _tempField;
 #define BUTTON_SIZE 25
 
 - (id)initWithFrame:(NSRect)frame
@@ -24,9 +24,11 @@
 		self.addButton.image = [NSImage imageNamed:NSImageNameAddTemplate];
 		self.editButton = [[[NSButton alloc] initWithFrame:NSMakeRect(0, 0, BUTTON_SIZE, BUTTON_SIZE)] autorelease];
 		self.editButton.image = [NSImage imageNamed:NSImageNameActionTemplate];
+		self.tempField = [[[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 50, 50)] autorelease];
 //		[self.addButton setHidden:NO];
 		[self addSubview:self.addButton];
 		[self addSubview:self.editButton];
+		[self addSubview:self.tempField];
 		NSButton * addButton = self.addButton;
 		NSButton * editButton = self.editButton;
 		NSDictionary * buttonsDictionary = NSDictionaryOfVariableBindings(addButton, editButton);

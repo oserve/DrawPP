@@ -9,6 +9,7 @@
 #import "OSTableViewDelegate.h"
 #import "OSChannelEventView.h"
 #import "OSChannel.h"
+#import "OSLength.h"
 #import "OSChannelEvent+utilities.h"
 
 @implementation OSTableViewDelegate
@@ -19,17 +20,17 @@
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {	
 	OSChannelEventView * channelView = [tableView makeViewWithIdentifier:@"channelView" owner:self];
     if(!channelView){
-		channelView = [[[OSChannelEventView alloc] initWithFrame:NSMakeRect(0, 0, [self.dataSource channelEventIChannel:[self.dataSource channelForPosition:row] atPosition:[[tableView tableColumns] indexOfObject:tableColumn]].length.floatValue, 150)] autorelease];
+		channelView = [[[OSChannelEventView alloc] initWithFrame:NSMakeRect(0, 0, [self.dataSource channelEventIChannel:[self.dataSource channelForPosition:row] atPosition:[[tableView tableColumns] indexOfObject:tableColumn]].length.duration.floatValue, 150)] autorelease];
 	}
 	channelView.identifier = @"channelView";
 
-//	channelView.textColor = [NSColor blueColor];
-//	if ([[self.dataSource channelEventIChannel:[self.dataSource channelForPosition:row] atPosition:[[tableView tableColumns] indexOfObject:tableColumn]] isKindOfClass:[OSDelay class]]) {
-//		channelView.stringValue = @"wait baby";
-//	}
-//	else{
-//		channelView.stringValue = @"yo baby";
-//	}
+	channelView.tempField.textColor = [NSColor blueColor];
+	if ([[self.dataSource channelEventIChannel:[self.dataSource channelForPosition:row] atPosition:[[tableView tableColumns] indexOfObject:tableColumn]] isDelay]) {
+		channelView.tempField.stringValue = @"wait baby";
+	}
+	else{
+		channelView.tempField.stringValue = @"yo baby";
+	}
 	[[tableColumn headerCell] setStringValue:@""];
 	return channelView;    
 }

@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		090BBFE3150B8AE500E3E489 /* OSPulseProgramController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */; };
-		090E7AF51515136F006D6839 /* OSChannelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 090E7AF41515136F006D6839 /* OSChannelEvent.m */; };
-		090E7AF81515136F006D6839 /* OSPowerLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 090E7AF71515136F006D6839 /* OSPowerLevel.m */; };
-		090E7AFB1515136F006D6839 /* OSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 090E7AFA1515136F006D6839 /* OSChannel.m */; };
 		090E7AFE15151437006D6839 /* OSChannelEvent+utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 090E7AFD15151437006D6839 /* OSChannelEvent+utilities.m */; };
 		0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942B03D1501985F00F674CC /* OSTableViewDelegate.m */; };
 		0946659614BE3857005CAE76 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0946659514BE3857005CAE76 /* Cocoa.framework */; };
@@ -21,18 +18,17 @@
 		094665AC14BE3857005CAE76 /* OSPulprog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094665AA14BE3857005CAE76 /* OSPulprog.xib */; };
 		094665AF14BE3857005CAE76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094665AD14BE3857005CAE76 /* MainMenu.xib */; };
 		094665B214BE3857005CAE76 /* OSPulprog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 094665B014BE3857005CAE76 /* OSPulprog.xcdatamodeld */; };
+		095870BE151D070C00E51691 /* OSChannelEventsArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870BD151D070C00E51691 /* OSChannelEventsArrayController.m */; };
+		095870D0151D1C9000E51691 /* OSPowerLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870CF151D1C9000E51691 /* OSPowerLevel.m */; };
+		095870D3151D1C9000E51691 /* OSLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870D2151D1C9000E51691 /* OSLength.m */; };
+		095870D6151D1C9000E51691 /* OSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870D5151D1C9000E51691 /* OSChannel.m */; };
+		095870D9151D1C9100E51691 /* OSChannelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870D8151D1C9100E51691 /* OSChannelEvent.m */; };
 		09F021541504209D00EDECD8 /* OSChannelEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F021531504209D00EDECD8 /* OSChannelEventView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		090BBFE1150B8AE500E3E489 /* OSPulseProgramController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPulseProgramController.h; sourceTree = "<group>"; };
 		090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPulseProgramController.m; sourceTree = "<group>"; };
-		090E7AF31515136F006D6839 /* OSChannelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelEvent.h; sourceTree = "<group>"; };
-		090E7AF41515136F006D6839 /* OSChannelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelEvent.m; sourceTree = "<group>"; };
-		090E7AF61515136F006D6839 /* OSPowerLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPowerLevel.h; sourceTree = "<group>"; };
-		090E7AF71515136F006D6839 /* OSPowerLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPowerLevel.m; sourceTree = "<group>"; };
-		090E7AF91515136F006D6839 /* OSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannel.h; sourceTree = "<group>"; };
-		090E7AFA1515136F006D6839 /* OSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannel.m; sourceTree = "<group>"; };
 		090E7AFC15151437006D6839 /* OSChannelEvent+utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OSChannelEvent+utilities.h"; sourceTree = "<group>"; };
 		090E7AFD15151437006D6839 /* OSChannelEvent+utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OSChannelEvent+utilities.m"; sourceTree = "<group>"; };
 		0942B03C1501985F00F674CC /* OSTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSTableViewDelegate.h; sourceTree = "<group>"; };
@@ -52,6 +48,18 @@
 		094665AB14BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OSPulprog.xib; sourceTree = "<group>"; };
 		094665AE14BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		094665B114BE3857005CAE76 /* OSPulprog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OSPulprog.xcdatamodel; sourceTree = "<group>"; };
+		095870BC151D070C00E51691 /* OSChannelEventsArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelEventsArrayController.h; sourceTree = "<group>"; };
+		095870BD151D070C00E51691 /* OSChannelEventsArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelEventsArrayController.m; sourceTree = "<group>"; };
+		095870C0151D14B500E51691 /* OSPulseProgramControllerDataSourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSPulseProgramControllerDataSourceProtocol.h; sourceTree = "<group>"; };
+		095870CE151D1C9000E51691 /* OSPowerLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPowerLevel.h; sourceTree = "<group>"; };
+		095870CF151D1C9000E51691 /* OSPowerLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPowerLevel.m; sourceTree = "<group>"; };
+		095870D1151D1C9000E51691 /* OSLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSLength.h; sourceTree = "<group>"; };
+		095870D2151D1C9000E51691 /* OSLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSLength.m; sourceTree = "<group>"; };
+		095870D4151D1C9000E51691 /* OSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannel.h; sourceTree = "<group>"; };
+		095870D5151D1C9000E51691 /* OSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannel.m; sourceTree = "<group>"; };
+		095870D7151D1C9100E51691 /* OSChannelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelEvent.h; sourceTree = "<group>"; };
+		095870D8151D1C9100E51691 /* OSChannelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelEvent.m; sourceTree = "<group>"; };
+		095870DA151D1F2700E51691 /* OSChannelEventArrayControllerDataSourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSChannelEventArrayControllerDataSourceProtocol.h; sourceTree = "<group>"; };
 		09F021521504209D00EDECD8 /* OSChannelEventView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelEventView.h; sourceTree = "<group>"; };
 		09F021531504209D00EDECD8 /* OSChannelEventView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelEventView.m; sourceTree = "<group>"; };
 		09F2D7DC1502D2A200E47851 /* OSPulseProgramDataSourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSPulseProgramDataSourceProtocol.h; sourceTree = "<group>"; };
@@ -74,6 +82,8 @@
 			children = (
 				090BBFE1150B8AE500E3E489 /* OSPulseProgramController.h */,
 				090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */,
+				095870BC151D070C00E51691 /* OSChannelEventsArrayController.h */,
+				095870BD151D070C00E51691 /* OSChannelEventsArrayController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -81,14 +91,16 @@
 		092A2B0F14FA635B00C2BA5D /* Model Classes */ = {
 			isa = PBXGroup;
 			children = (
-				090E7AF91515136F006D6839 /* OSChannel.h */,
+				095870D7151D1C9100E51691 /* OSChannelEvent.h */,
+				095870D8151D1C9100E51691 /* OSChannelEvent.m */,
+				095870D4151D1C9000E51691 /* OSChannel.h */,
+				095870D5151D1C9000E51691 /* OSChannel.m */,
+				095870D1151D1C9000E51691 /* OSLength.h */,
+				095870D2151D1C9000E51691 /* OSLength.m */,
+				095870CE151D1C9000E51691 /* OSPowerLevel.h */,
+				095870CF151D1C9000E51691 /* OSPowerLevel.m */,
 				090E7AFC15151437006D6839 /* OSChannelEvent+utilities.h */,
 				090E7AFD15151437006D6839 /* OSChannelEvent+utilities.m */,
-				090E7AFA1515136F006D6839 /* OSChannel.m */,
-				090E7AF61515136F006D6839 /* OSPowerLevel.h */,
-				090E7AF71515136F006D6839 /* OSPowerLevel.m */,
-				090E7AF31515136F006D6839 /* OSChannelEvent.h */,
-				090E7AF41515136F006D6839 /* OSChannelEvent.m */,
 			);
 			name = "Model Classes";
 			sourceTree = "<group>";
@@ -150,7 +162,7 @@
 				094665AA14BE3857005CAE76 /* OSPulprog.xib */,
 				094665AD14BE3857005CAE76 /* MainMenu.xib */,
 				094665B014BE3857005CAE76 /* OSPulprog.xcdatamodeld */,
-				09F2D7DC1502D2A200E47851 /* OSPulseProgramDataSourceProtocol.h */,
+				095870C1151D14C800E51691 /* Protocols */,
 				0946659C14BE3857005CAE76 /* Supporting Files */,
 			);
 			path = DrawPP;
@@ -166,6 +178,16 @@
 				094665A414BE3857005CAE76 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		095870C1151D14C800E51691 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				095870C0151D14B500E51691 /* OSPulseProgramControllerDataSourceProtocol.h */,
+				095870DA151D1F2700E51691 /* OSChannelEventArrayControllerDataSourceProtocol.h */,
+				09F2D7DC1502D2A200E47851 /* OSPulseProgramDataSourceProtocol.h */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		09955D7814FD693B0079EFA5 /* TableViews Delegates */ = {
@@ -248,10 +270,12 @@
 				0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */,
 				09F021541504209D00EDECD8 /* OSChannelEventView.m in Sources */,
 				090BBFE3150B8AE500E3E489 /* OSPulseProgramController.m in Sources */,
-				090E7AF51515136F006D6839 /* OSChannelEvent.m in Sources */,
-				090E7AF81515136F006D6839 /* OSPowerLevel.m in Sources */,
-				090E7AFB1515136F006D6839 /* OSChannel.m in Sources */,
 				090E7AFE15151437006D6839 /* OSChannelEvent+utilities.m in Sources */,
+				095870BE151D070C00E51691 /* OSChannelEventsArrayController.m in Sources */,
+				095870D0151D1C9000E51691 /* OSPowerLevel.m in Sources */,
+				095870D3151D1C9000E51691 /* OSLength.m in Sources */,
+				095870D6151D1C9000E51691 /* OSChannel.m in Sources */,
+				095870D9151D1C9100E51691 /* OSChannelEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

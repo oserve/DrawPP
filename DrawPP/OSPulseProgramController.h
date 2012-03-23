@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 MyOwnCompany. All rights reserved.
 //
 
-#import "OSPulprog.h"
+#import "OSPulseProgramControllerDataSourceProtocol.h"
 
 @interface OSPulseProgramController : NSObject
 
-@property (weak,atomic) IBOutlet NSTableView * pulseProgramView;
-@property (weak, atomic) IBOutlet OSPulprog * dataSource; //Replace by a protocol
-@property (strong, atomic) NSMutableArray * channelControllers;//Maybe NSMutableDictionnary would be more suitable
+@property (weak, atomic) IBOutlet NSTableView * pulseProgramView;
+@property (weak, atomic) IBOutlet id <OSPulseProgramControllerDataSourceProtocol> programDataSource;
+
 @end

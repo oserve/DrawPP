@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Channel" representedClassName="OSChannel">
         <attribute name="isAcquisitionChannel" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -10,14 +10,18 @@
         <relationship name="powerLevels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PowerLevel" inverseName="channel" inverseEntity="PowerLevel" syncable="YES"/>
     </entity>
     <entity name="ChannelEvent" representedClassName="OSChannelEvent" syncable="YES">
-        <attribute name="length" optional="YES" attributeType="Float" defaultValueString="0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="phase" optional="YES" attributeType="String"/>
         <attribute name="positionOnChannel" optional="YES" attributeType="Integer 16"/>
         <attribute name="shape" optional="YES" attributeType="String" defaultValueString="square"/>
         <relationship name="channel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="channelEvents" inverseEntity="Channel" syncable="YES"/>
+        <relationship name="length" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Length" inverseName="channelEvents" inverseEntity="Length" syncable="YES"/>
         <relationship name="powerLevel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PowerLevel" inverseName="channelEvents" inverseEntity="PowerLevel" syncable="YES"/>
-        <relationship name="sameLengthAs" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ChannelEvent" inverseName="sameLengthAs" inverseEntity="ChannelEvent" syncable="YES"/>
+    </entity>
+    <entity name="Length" representedClassName="OSLength" syncable="YES">
+        <attribute name="duration" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="channelEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChannelEvent" inverseName="length" inverseEntity="ChannelEvent" syncable="YES"/>
     </entity>
     <entity name="PowerLevel" representedClassName="OSPowerLevel" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,5 +33,6 @@
         <element name="Channel" positionX="925" positionY="-633" width="128" height="150"/>
         <element name="ChannelEvent" positionX="738" positionY="-729" width="144" height="165"/>
         <element name="PowerLevel" positionX="556" positionY="-549" width="128" height="105"/>
+        <element name="Length" positionX="556" positionY="-729" width="128" height="90"/>
     </elements>
 </model>

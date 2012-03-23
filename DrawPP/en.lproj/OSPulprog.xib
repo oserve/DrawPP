@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
 		<string key="IBDocument.SystemVersion">11D50</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
 		<string key="IBDocument.AppKitVersion">1138.32</string>
 		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">1938</string>
+			<string key="NS.object.0">2182</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSScroller</string>
@@ -393,17 +393,12 @@
 			<object class="NSCustomObject" id="154024878">
 				<string key="NSClassName">OSPulseProgramController</string>
 			</object>
+			<object class="NSCustomObject" id="620362877">
+				<string key="NSClassName">OSChannelEventsArrayController</string>
+			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">pulseProgramView</string>
-						<reference key="source" ref="512844837"/>
-						<reference key="destination" ref="535845627"/>
-					</object>
-					<int key="connectionID">100199</int>
-				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
@@ -427,62 +422,6 @@
 						<reference key="destination" ref="512844837"/>
 					</object>
 					<int key="connectionID">100202</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">dataSource</string>
-						<reference key="source" ref="154024878"/>
-						<reference key="destination" ref="512844837"/>
-					</object>
-					<int key="connectionID">100220</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">pulseProgramView</string>
-						<reference key="source" ref="154024878"/>
-						<reference key="destination" ref="535845627"/>
-					</object>
-					<int key="connectionID">100221</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">addChannel:</string>
-						<reference key="source" ref="154024878"/>
-						<reference key="destination" ref="836550441"/>
-					</object>
-					<int key="connectionID">100222</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">AddDelay:</string>
-						<reference key="source" ref="154024878"/>
-						<reference key="destination" ref="710858539"/>
-					</object>
-					<int key="connectionID">100261</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">AddPulse:</string>
-						<reference key="source" ref="154024878"/>
-						<reference key="destination" ref="890812099"/>
-					</object>
-					<int key="connectionID">100266</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">RemoveChannel:</string>
-						<reference key="source" ref="154024878"/>
-						<reference key="destination" ref="773112406"/>
-					</object>
-					<int key="connectionID">100293</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">removeChannelEvent:</string>
-						<reference key="source" ref="154024878"/>
-						<reference key="destination" ref="188238023"/>
-					</object>
-					<int key="connectionID">100333</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -520,6 +459,46 @@
 						<reference key="destination" ref="538927086"/>
 					</object>
 					<int key="connectionID">100238</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">pulseProgramView</string>
+						<reference key="source" ref="154024878"/>
+						<reference key="destination" ref="535845627"/>
+					</object>
+					<int key="connectionID">100409</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">addChannel:</string>
+						<reference key="source" ref="154024878"/>
+						<reference key="destination" ref="836550441"/>
+					</object>
+					<int key="connectionID">100410</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">RemoveChannel:</string>
+						<reference key="source" ref="154024878"/>
+						<reference key="destination" ref="773112406"/>
+					</object>
+					<int key="connectionID">100411</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">programDataSource</string>
+						<reference key="source" ref="154024878"/>
+						<reference key="destination" ref="512844837"/>
+					</object>
+					<int key="connectionID">100413</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">eventsDataSource</string>
+						<reference key="source" ref="620362877"/>
+						<reference key="destination" ref="512844837"/>
+					</object>
+					<int key="connectionID">100415</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -859,11 +838,6 @@
 						<reference key="parent" ref="710858539"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">100219</int>
-						<reference key="object" ref="154024878"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">100233</int>
 						<reference key="object" ref="1020173832"/>
 						<array class="NSMutableArray" key="children">
@@ -1070,6 +1044,16 @@
 						<reference key="object" ref="772824911"/>
 						<reference key="parent" ref="861522466"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100408</int>
+						<reference key="object" ref="154024878"/>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100414</int>
+						<reference key="object" ref="620362877"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1111,7 +1095,6 @@
 				<boolean value="NO" key="100213.IBNSViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 				<string key="100213.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100214.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="100219.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100233.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="100233.isInViewBasedMode"/>
 				<array key="100233.prototypeCellViews">
@@ -1155,62 +1138,42 @@
 				<string key="100402.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100403.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100404.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="100408.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="100414.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100404</int>
+			<int key="maxID">100415</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">NSDocument</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="printDocument:">id</string>
-						<string key="revertDocumentToSaved:">id</string>
-						<string key="runPageLayout:">id</string>
-						<string key="saveDocument:">id</string>
-						<string key="saveDocumentAs:">id</string>
-						<string key="saveDocumentTo:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="printDocument:">
-							<string key="name">printDocument:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="revertDocumentToSaved:">
-							<string key="name">revertDocumentToSaved:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="runPageLayout:">
-							<string key="name">runPageLayout:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveDocument:">
-							<string key="name">saveDocument:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveDocumentAs:">
-							<string key="name">saveDocumentAs:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveDocumentTo:">
-							<string key="name">saveDocumentTo:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSDocument.h</string>
-					</object>
-				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">NSLayoutConstraint</string>
 					<string key="superclassName">NSObject</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">OSChannelEventsArrayController</string>
+					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">eventsDataSource</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">eventsDataSource</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">eventsDataSource</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/OSChannelEventsArrayController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -1225,13 +1188,13 @@
 					<string key="className">OSPulseProgramController</string>
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="dataSource">OSPulprog</string>
+						<string key="programDataSource">id</string>
 						<string key="pulseProgramView">NSTableView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="dataSource">
-							<string key="name">dataSource</string>
-							<string key="candidateClassName">OSPulprog</string>
+						<object class="IBToOneOutletInfo" key="programDataSource">
+							<string key="name">programDataSource</string>
+							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="pulseProgramView">
 							<string key="name">pulseProgramView</string>
@@ -1246,17 +1209,20 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">OSTableViewDelegate</string>
 					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">dataSource</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">dataSource</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="dataSource">id</string>
+						<string key="pulseProgramController">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="dataSource">
 							<string key="name">dataSource</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+						<object class="IBToOneOutletInfo" key="pulseProgramController">
+							<string key="name">pulseProgramController</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/OSTableViewDelegate.h</string>

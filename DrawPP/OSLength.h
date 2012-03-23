@@ -1,5 +1,5 @@
 //
-//  OSPowerLevel.h
+//  OSLength.h
 //  DrawPP
 //
 //  Created by Olivier Serve on 23/03/12.
@@ -9,17 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class OSChannel, OSChannelEvent;
+@class OSChannelEvent;
 
-@interface OSPowerLevel : NSManagedObject
+@interface OSLength : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * duration;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * power;
-@property (nonatomic, retain) OSChannel *channel;
 @property (nonatomic, retain) NSSet *channelEvents;
 @end
 
-@interface OSPowerLevel (CoreDataGeneratedAccessors)
+@interface OSLength (CoreDataGeneratedAccessors)
 
 - (void)addChannelEventsObject:(OSChannelEvent *)value;
 - (void)removeChannelEventsObject:(OSChannelEvent *)value;
