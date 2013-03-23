@@ -20,11 +20,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code here.
-		self.addButton = [[[NSButton alloc] initWithFrame:NSMakeRect(0, 0, BUTTON_SIZE, BUTTON_SIZE)] autorelease];
+		self.addButton = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, BUTTON_SIZE, BUTTON_SIZE)];
 		self.addButton.image = [NSImage imageNamed:NSImageNameAddTemplate];
-		self.editButton = [[[NSButton alloc] initWithFrame:NSMakeRect(0, 0, BUTTON_SIZE, BUTTON_SIZE)] autorelease];
+		self.editButton = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, BUTTON_SIZE, BUTTON_SIZE)];
 		self.editButton.image = [NSImage imageNamed:NSImageNameActionTemplate];
-		self.tempField = [[[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 50, 50)] autorelease];
+		self.tempField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 50, 50)];
 //		[self.addButton setHidden:NO];
 		[self addSubview:self.addButton];
 		[self addSubview:self.editButton];

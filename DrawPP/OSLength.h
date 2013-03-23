@@ -13,9 +13,9 @@
 
 @interface OSLength : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * duration;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet *channelEvents;
+@property (nonatomic, strong) NSNumber * duration;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSSet *channelEvents;
 @end
 
 @interface OSLength (CoreDataGeneratedAccessors)

@@ -20,7 +20,7 @@
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {	
 	OSChannelEventView * channelView = [tableView makeViewWithIdentifier:@"channelView" owner:self];
     if(!channelView){
-		channelView = [[[OSChannelEventView alloc] initWithFrame:NSMakeRect(0, 0, [self.dataSource channelEventIChannel:[self.dataSource channelForPosition:row] atPosition:[[tableView tableColumns] indexOfObject:tableColumn]].length.duration.floatValue, 150)] autorelease];
+		channelView = [[OSChannelEventView alloc] initWithFrame:NSMakeRect(0, 0, [self.dataSource channelEventIChannel:[self.dataSource channelForPosition:row] atPosition:[[tableView tableColumns] indexOfObject:tableColumn]].length.duration.floatValue, 150)];
 	}
 	channelView.identifier = @"channelView";
 

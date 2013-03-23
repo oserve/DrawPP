@@ -19,7 +19,6 @@
 	NSSortDescriptor * channelDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnGraph" ascending:YES];
 	NSFetchRequest * channelRequest = [NSFetchRequest fetchRequestWithEntityName:@"Channel"];
 	channelRequest.sortDescriptors = [NSArray arrayWithObject:channelDescriptor];
-	[channelDescriptor release];
 	NSError * error = nil;
 	NSArray * channels = [self.managedObjectContext executeFetchRequest:channelRequest error:&error];
 	return channels;
@@ -41,7 +40,6 @@
     NSSortDescriptor * channelEventDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnChannel" ascending:YES];
 	NSFetchRequest * channelEventRequest = [NSFetchRequest fetchRequestWithEntityName:@"ChannelEvent"];
 	channelEventRequest.sortDescriptors = [NSArray arrayWithObject:channelEventDescriptor];
-	[channelEventDescriptor release];
 	NSPredicate * channelPredicate = [NSPredicate predicateWithFormat:@"channel = %@",aChannel];
 	channelEventRequest.predicate = channelPredicate;
 	NSError * error = nil;
@@ -81,7 +79,6 @@
 	NSSortDescriptor * channelEventDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnChannel" ascending:YES];
 	NSFetchRequest * channelEventRequest = [NSFetchRequest fetchRequestWithEntityName:@"ChannelEvent"];
 	channelEventRequest.sortDescriptors = [NSArray arrayWithObject:channelEventDescriptor];
-	[channelEventDescriptor release];
 	NSPredicate * channelPredicate = [NSPredicate predicateWithFormat:@"channel = %@",channel];
 	channelEventRequest.predicate = channelPredicate;
 	NSError * error = nil;

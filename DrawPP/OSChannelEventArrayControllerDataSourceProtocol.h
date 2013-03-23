@@ -13,6 +13,6 @@
 
 -(void)addNewPulseToChannel:(OSChannel *)aChannel atPosition:(NSInteger)position;
 -(void)addNewDelayToChannel:(OSChannel *)aChannel atPosition:(NSInteger)position;
--(void)removeChannelEvent:(OSChannelevent *)anEvent;
+-(void)removeChannelEvent:(OSChannelEvent *)anEvent;
 
 @end

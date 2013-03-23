@@ -14,14 +14,19 @@
 @synthesize pulseProgramView = _pulseProgramView;
 @synthesize programDataSource = _programDataSource;
 
+
+- (void)adaptNumberOfColumns{
+	while ([self.programDataSource numberOfChannelEventsinChannel:[self.programDataSource channelForPosition:0]] > [self.pulseProgramView numberOfColumns]) {
+		NSTableColumn * newColumn = [[NSTableColumn alloc] init];
+		[self.pulseProgramView addTableColumn:newColumn];
+	}  
+}
+
 #pragma mark UI Actions methods
 
 - (IBAction)addChannel:(id)sender {
 	[self.programDataSource addChannelToProgram];
-	while ([self.programDataSource numberOfChannelEventsinChannel:[self.programDataSource channelForPosition:0]] > [self.pulseProgramView numberOfColumns]) {
-		NSTableColumn * newColumn = [[[NSTableColumn alloc] init] autorelease];
-		[self.pulseProgramView addTableColumn:newColumn];
-	}  
+	[self adaptNumberOfColumns];
 	[self.pulseProgramView reloadData];
 }
 

@@ -13,12 +13,12 @@
 
 @interface OSChannelEvent : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * phase;
-@property (nonatomic, retain) NSNumber * positionOnChannel;
-@property (nonatomic, retain) NSString * shape;
-@property (nonatomic, retain) OSChannel *channel;
-@property (nonatomic, retain) OSPowerLevel *powerLevel;
-@property (nonatomic, retain) OSLength *length;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSString * phase;
+@property (nonatomic, strong) NSNumber * positionOnChannel;
+@property (nonatomic, strong) NSString * shape;
+@property (nonatomic, strong) OSChannel *channel;
+@property (nonatomic, strong) OSPowerLevel *powerLevel;
+@property (nonatomic, strong) OSLength *length;
 
 @end

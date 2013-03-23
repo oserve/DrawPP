@@ -13,13 +13,13 @@
 
 @interface OSChannel : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * isAcquisitionChannel;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * nucleus;
-@property (nonatomic, retain) NSNumber * piPulseLength;
-@property (nonatomic, retain) NSNumber * positionOnGraph;
-@property (nonatomic, retain) NSSet *channelEvents;
-@property (nonatomic, retain) NSSet *powerLevels;
+@property (nonatomic, strong) NSNumber * isAcquisitionChannel;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSString * nucleus;
+@property (nonatomic, strong) NSNumber * piPulseLength;
+@property (nonatomic, strong) NSNumber * positionOnGraph;
+@property (nonatomic, strong) NSSet *channelEvents;
+@property (nonatomic, strong) NSSet *powerLevels;
 @end
 
 @interface OSChannel (CoreDataGeneratedAccessors)

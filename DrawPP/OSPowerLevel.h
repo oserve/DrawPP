@@ -13,10 +13,10 @@
 
 @interface OSPowerLevel : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * power;
-@property (nonatomic, retain) OSChannel *channel;
-@property (nonatomic, retain) NSSet *channelEvents;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSNumber * power;
+@property (nonatomic, strong) OSChannel *channel;
+@property (nonatomic, strong) NSSet *channelEvents;
 @end
 
 @interface OSPowerLevel (CoreDataGeneratedAccessors)
