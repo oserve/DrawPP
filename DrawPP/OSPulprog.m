@@ -36,7 +36,7 @@
     return [[self channelsInPulseProgram] count];
 }
 
-- (NSArray *)channelEventsinChannel:(OSChannel *)aChannel{
+- (NSArray *)channelEventsInChannel:(OSChannel *)aChannel{
     NSSortDescriptor * channelEventDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnChannel" ascending:YES];
 	NSFetchRequest * channelEventRequest = [NSFetchRequest fetchRequestWithEntityName:@"ChannelEvent"];
 	channelEventRequest.sortDescriptors = [NSArray arrayWithObject:channelEventDescriptor];
@@ -46,21 +46,30 @@
 	return [self.managedObjectContext executeFetchRequest:channelEventRequest error:&error];    
 }
 
-- (NSInteger)numberOfChannelEventsinChannel:(OSChannel *)aChannel{
-	return [[self channelEventsinChannel:aChannel] count];
+- (NSInteger)numberOfChannelEventsInChannel:(OSChannel *)aChannel{
+	return [[self channelEventsInChannel:aChannel] count];
 //    return 2;
 }
 
-- (OSChannelEvent *)channelEventIChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position{
+- (NSInteger)numberOfChannelEvents{
+    if (self.numberOfChannelsInPulseProgram) {
+        return [self numberOfChannelEventsInChannel:[self.channelsInPulseProgram objectAtIndex:0]];
+    } else {
+        return 0;
+    }
+    //    return 2;
+}
+
+- (OSChannelEvent *)channelEventInChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position{
     OSChannelEvent * theChannelEvent = nil;
-    if (position < [[self channelEventsinChannel:aChannel] count]) {
-        theChannelEvent = [[self channelEventsinChannel:aChannel] objectAtIndex:position];
+    if (position < [[self channelEventsInChannel:aChannel] count]) {
+        theChannelEvent = [[self channelEventsInChannel:aChannel] objectAtIndex:position];
     }
     return theChannelEvent;
 }
 
 -(void)insertNewChannelEvent:(OSChannelEvent *)anEvent InChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position{
-	NSArray * allEvents = [self channelEventsinChannel:aChannel];
+	NSArray * allEvents = [self channelEventsInChannel:aChannel];
 	for (OSChannelEvent * event in allEvents) {
 		if (event.positionOnChannel.integerValue > position) {
 			event.positionOnChannel = [NSNumber numberWithInteger:event.positionOnChannel.integerValue +1 ];
@@ -160,7 +169,7 @@
 #pragma mark Move elements
 
 - (void)moveChannelEvent:(OSChannelEvent *)aChannelEvent ToPosition:(NSInteger)position{
-	NSMutableArray * allEvents = [[self channelEventsinChannel:aChannelEvent.channel] mutableCopy];
+	NSMutableArray * allEvents = [[self channelEventsInChannel:aChannelEvent.channel] mutableCopy];
 	OSChannel * currentChannel = aChannelEvent.channel;
 //Resort channelEvents in currentChannel
 	[allEvents removeObject:aChannelEvent];
@@ -175,7 +184,7 @@
 	if ([[self channelsInPulseProgram] count] > 1) {
 		for (OSChannel * aChannel in [self channelsInPulseProgram]) {
 			if (aChannel != currentChannel) {
-				aChannelEvent.length.duration = [NSNumber numberWithInteger:[[[self channelEventsinChannel:aChannel] objectAtIndex:position] length]];
+				aChannelEvent.length.duration = [NSNumber numberWithInteger:[[[self channelEventsInChannel:aChannel] objectAtIndex:position] length]];
 				break;
 			}
 		}

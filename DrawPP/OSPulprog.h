@@ -13,17 +13,17 @@
 #import "OSLength.h"
 #import "OSPulseProgramDataSourceProtocol.h"
 #import "OSPulseProgramControllerDataSourceProtocol.h"
-#import "OSChannelEventArrayControllerDataSourceProtocol.h"
 
-@interface OSPulprog : NSPersistentDocument <OSPulseProgramDataSourceProtocol, OSPulseProgramControllerDataSourceProtocol, OSChannelEventArrayControllerDataSourceProtocol>{
+@interface OSPulprog : NSPersistentDocument <OSPulseProgramDataSourceProtocol, OSPulseProgramControllerDataSourceProtocol> {
 @private
 
 }
 #pragma mark TableView controller datasource protocol
 - (OSChannel *)channelForPosition:(NSUInteger)position;
 - (NSInteger)numberOfChannelsInPulseProgram;
-- (NSInteger)numberOfChannelEventsinChannel:(OSChannel *)aChannel;
-- (OSChannelEvent *)channelEventIChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;
+- (NSInteger)numberOfChannelEventsInChannel:(OSChannel *)aChannel;
+- (NSInteger)numberOfChannelEvents;
+- (OSChannelEvent *)channelEventInChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;
 
 #pragma mark Interface controller datasource methods
 - (void)addChannelToProgram;

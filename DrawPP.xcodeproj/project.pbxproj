@@ -18,12 +18,10 @@
 		094665AC14BE3857005CAE76 /* OSPulprog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094665AA14BE3857005CAE76 /* OSPulprog.xib */; };
 		094665AF14BE3857005CAE76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094665AD14BE3857005CAE76 /* MainMenu.xib */; };
 		094665B214BE3857005CAE76 /* OSPulprog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 094665B014BE3857005CAE76 /* OSPulprog.xcdatamodeld */; };
-		095870BE151D070C00E51691 /* OSChannelEventsArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870BD151D070C00E51691 /* OSChannelEventsArrayController.m */; };
 		095870D0151D1C9000E51691 /* OSPowerLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870CF151D1C9000E51691 /* OSPowerLevel.m */; };
 		095870D3151D1C9000E51691 /* OSLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870D2151D1C9000E51691 /* OSLength.m */; };
 		095870D6151D1C9000E51691 /* OSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870D5151D1C9000E51691 /* OSChannel.m */; };
 		095870D9151D1C9100E51691 /* OSChannelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870D8151D1C9100E51691 /* OSChannelEvent.m */; };
-		09F021541504209D00EDECD8 /* OSChannelEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F021531504209D00EDECD8 /* OSChannelEventView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +46,6 @@
 		094665AB14BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OSPulprog.xib; sourceTree = "<group>"; };
 		094665AE14BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		094665B114BE3857005CAE76 /* OSPulprog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OSPulprog.xcdatamodel; sourceTree = "<group>"; };
-		095870BC151D070C00E51691 /* OSChannelEventsArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelEventsArrayController.h; sourceTree = "<group>"; };
-		095870BD151D070C00E51691 /* OSChannelEventsArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelEventsArrayController.m; sourceTree = "<group>"; };
 		095870C0151D14B500E51691 /* OSPulseProgramControllerDataSourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSPulseProgramControllerDataSourceProtocol.h; sourceTree = "<group>"; };
 		095870CE151D1C9000E51691 /* OSPowerLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPowerLevel.h; sourceTree = "<group>"; };
 		095870CF151D1C9000E51691 /* OSPowerLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPowerLevel.m; sourceTree = "<group>"; };
@@ -59,9 +55,6 @@
 		095870D5151D1C9000E51691 /* OSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannel.m; sourceTree = "<group>"; };
 		095870D7151D1C9100E51691 /* OSChannelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelEvent.h; sourceTree = "<group>"; };
 		095870D8151D1C9100E51691 /* OSChannelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelEvent.m; sourceTree = "<group>"; };
-		095870DA151D1F2700E51691 /* OSChannelEventArrayControllerDataSourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSChannelEventArrayControllerDataSourceProtocol.h; sourceTree = "<group>"; };
-		09F021521504209D00EDECD8 /* OSChannelEventView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelEventView.h; sourceTree = "<group>"; };
-		09F021531504209D00EDECD8 /* OSChannelEventView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelEventView.m; sourceTree = "<group>"; };
 		09F2D7DC1502D2A200E47851 /* OSPulseProgramDataSourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSPulseProgramDataSourceProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,8 +75,6 @@
 			children = (
 				090BBFE1150B8AE500E3E489 /* OSPulseProgramController.h */,
 				090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */,
-				095870BC151D070C00E51691 /* OSChannelEventsArrayController.h */,
-				095870BD151D070C00E51691 /* OSChannelEventsArrayController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -103,15 +94,6 @@
 				090E7AFD15151437006D6839 /* OSChannelEvent+utilities.m */,
 			);
 			name = "Model Classes";
-			sourceTree = "<group>";
-		};
-		0930920914FC1A52004838BB /* View Classes */ = {
-			isa = PBXGroup;
-			children = (
-				09F021521504209D00EDECD8 /* OSChannelEventView.h */,
-				09F021531504209D00EDECD8 /* OSChannelEventView.m */,
-			);
-			name = "View Classes";
 			sourceTree = "<group>";
 		};
 		0946658614BE3857005CAE76 = {
@@ -155,7 +137,6 @@
 			children = (
 				090E7AFF151552B7006D6839 /* Controllers */,
 				09955D7814FD693B0079EFA5 /* TableViews Delegates */,
-				0930920914FC1A52004838BB /* View Classes */,
 				092A2B0F14FA635B00C2BA5D /* Model Classes */,
 				095870C1151D14C800E51691 /* Protocols */,
 				094665A714BE3857005CAE76 /* OSPulprog.h */,
@@ -184,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				095870C0151D14B500E51691 /* OSPulseProgramControllerDataSourceProtocol.h */,
-				095870DA151D1F2700E51691 /* OSChannelEventArrayControllerDataSourceProtocol.h */,
 				09F2D7DC1502D2A200E47851 /* OSPulseProgramDataSourceProtocol.h */,
 			);
 			name = Protocols;
@@ -225,7 +205,7 @@
 		0946658814BE3857005CAE76 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = MyOwnCompany;
 			};
 			buildConfigurationList = 0946658B14BE3857005CAE76 /* Build configuration list for PBXProject "DrawPP" */;
@@ -268,10 +248,8 @@
 				094665A914BE3857005CAE76 /* OSPulprog.m in Sources */,
 				094665B214BE3857005CAE76 /* OSPulprog.xcdatamodeld in Sources */,
 				0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */,
-				09F021541504209D00EDECD8 /* OSChannelEventView.m in Sources */,
 				090BBFE3150B8AE500E3E489 /* OSPulseProgramController.m in Sources */,
 				090E7AFE15151437006D6839 /* OSChannelEvent+utilities.m in Sources */,
-				095870BE151D070C00E51691 /* OSChannelEventsArrayController.m in Sources */,
 				095870D0151D1C9000E51691 /* OSPowerLevel.m in Sources */,
 				095870D3151D1C9000E51691 /* OSLength.m in Sources */,
 				095870D6151D1C9000E51691 /* OSChannel.m in Sources */,
@@ -320,9 +298,10 @@
 		094665B314BE3857005CAE76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -331,12 +310,14 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -345,20 +326,23 @@
 		094665B414BE3857005CAE76 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -367,12 +351,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DrawPP/DrawPP-Prefix.pch";
 				INFOPLIST_FILE = "DrawPP/DrawPP-Info.plist";
@@ -386,12 +370,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DrawPP/DrawPP-Prefix.pch";
 				INFOPLIST_FILE = "DrawPP/DrawPP-Info.plist";

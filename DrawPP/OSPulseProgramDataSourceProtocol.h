@@ -14,7 +14,7 @@
 
 - (NSInteger)numberOfChannelsInPulseProgram;
 - (OSChannel *)channelForPosition:(NSUInteger)position;
-- (NSInteger)numberOfChannelEventsinChannel:(OSChannel *)aChannel;
-- (OSChannelEvent *)channelEventIChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;
+- (NSInteger)numberOfChannelEvents;
+- (OSChannelEvent *)channelEventInChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;
 
 @end
