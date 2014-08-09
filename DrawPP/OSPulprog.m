@@ -132,12 +132,12 @@
 	[self insertNewChannelEvent:aPulse InChannel:channel atPosition:position];
 	
 }
-- (void)addChannelToProgram{	
+- (void)addChannelToProgramWithName:(NSString*)aChannelName{
 	NSInteger newChannelPosition = [[self channelsInPulseProgram] count];
 
 	OSChannel * aChannel = [NSEntityDescription insertNewObjectForEntityForName:@"Channel" inManagedObjectContext:self.managedObjectContext];
 	aChannel.positionOnGraph = [NSNumber numberWithInteger:newChannelPosition];
-	aChannel.name = @"X";
+	aChannel.name = aChannelName;
 
 	if (!newChannelPosition) {
 		aChannel.isAcquisitionChannel = [NSNumber numberWithBool:YES];
@@ -194,6 +194,16 @@
 
 - (void)moveChannel:(OSChannel *)channel toPosition:(NSInteger)position{
 	
+}
+
+- (NSArray *)channelNames{
+    NSMutableArray * names = [[NSMutableArray alloc] init];
+    for (OSChannel * channel in [self channelsInPulseProgram]) {
+        if (![names containsObject:channel.name]) {
+            [names addObject:channel.name];
+        }
+    }
+    return [NSArray arrayWithArray:names];
 }
 
 

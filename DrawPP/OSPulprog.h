@@ -26,7 +26,7 @@
 - (OSChannelEvent *)channelEventInChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;
 
 #pragma mark Interface controller datasource methods
-- (void)addChannelToProgram;
+- (void)addChannelToProgramWithName:(NSString*)aChannelName;
 - (void)removeChannel:(OSChannel *)channel;
 
 - (NSInteger)lastPositionAvailableOnChannel:(OSChannel *)channel;
@@ -35,5 +35,6 @@
 - (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position;
 - (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position;
 - (void)removeChannelEvent:(OSChannelEvent *)aChannelEvent;
+- (NSArray *)channelNames;
 
 @end

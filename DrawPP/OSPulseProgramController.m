@@ -18,7 +18,7 @@
 #pragma mark UI Actions methods
 
 - (IBAction)addChannel:(id)sender {
-	[self.programDataSource addChannelToProgram];
+	[self.programDataSource addChannelToProgramWithName:@"X"];
 	[self.pulseProgramView reloadData];
 }
 

@@ -11,7 +11,8 @@
 
 @protocol OSPulseProgramControllerDataSourceProtocol <OSPulseProgramDataSourceProtocol>
 
--(void)addChannelToProgram;
+-(void)addChannelToProgramWithName:(NSString*)aChannelName;
 -(void)removeChannel:(OSChannel *)aChannel;
+-(NSArray *)channelNames;
 
 @end
