@@ -17,9 +17,12 @@
 @synthesize pulseProgramController = _pulseProgramController;
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    NSTableCellView * aCell = [[NSTableCellView alloc] init];
-    aCell.textField.stringValue = @"Hello";
-	return aCell;
+    [self updateColumnsInTableView:tableView];
+    NSString *identifier = [tableColumn identifier];
+
+    NSTableCellView *cellView = [tableView makeViewWithIdentifier:identifier owner:self];
+    cellView.textField.stringValue = @"Hello";
+	return cellView;
 	}
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
@@ -29,6 +32,21 @@
 
 -(NSString *)description{
     return @"Delegate for OSPulseProgramView.";
+}
+
+- (void)updateColumnsInTableView:(NSTableView *)tableView{
+    if (tableView.numberOfColumns < self.dataSource.numberOfChannelsInPulseProgram ) {
+        [tableView addTableColumn:[[NSTableColumn alloc] init]];
+    }
+    else if (tableView.numberOfColumns > self.dataSource.numberOfChannelsInPulseProgram){
+        [tableView removeTableColumn:[tableView.tableColumns lastObject]];
+    }
+    NSUInteger position = 0;
+    for (NSTableColumn * aColumn in tableView.tableColumns) {
+        aColumn.identifier = [self.dataSource channelForPosition:position].name;
+        [aColumn.headerCell setStringValue:[self.dataSource channelForPosition:position].name];
+    }
+    
 }
 
 @end
