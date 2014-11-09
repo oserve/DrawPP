@@ -18,10 +18,10 @@
 @private
 
 }
-#pragma mark TableView controller datasource protocol
+#pragma mark PulseProgramView controller datasource protocol
 - (OSChannel *)channelForPosition:(NSUInteger)position;
 - (NSInteger)numberOfChannelsInPulseProgram;
-- (NSInteger)numberOfChannelEventsInChannel:(OSChannel *)aChannel;
+//- (NSInteger)numberOfChannelEventsInChannel:(OSChannel *)aChannel;
 - (NSInteger)numberOfChannelEvents;
 - (OSChannelEvent *)channelEventInChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;
 
@@ -32,8 +32,8 @@
 - (NSInteger)lastPositionAvailableOnChannel:(OSChannel *)channel;
 - (NSArray *)channelsInPulseProgram;
 
-- (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position;
-- (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position;
+- (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(NSNumber *)aLength andPower:(NSNumber *)aPower;
+- (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(NSNumber *)aLength;
 - (void)removeChannelEvent:(OSChannelEvent *)aChannelEvent;
 - (NSArray *)channelNames;
 

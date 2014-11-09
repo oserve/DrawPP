@@ -23,12 +23,24 @@
 }
 
 - (IBAction)RemoveChannel:(id)sender {
-	NSInteger channelPosition =[self.pulseProgramView selectedRow];
+	NSInteger channelPosition =[self.pulseProgramView selectedColumn];
 	if (channelPosition != -1) {
 		[self.programDataSource removeChannel:[self.programDataSource channelForPosition:channelPosition]];
 		[self.pulseProgramView reloadData];
 
 	}
 }
+
+//- (IBAction)AddPulse:(id)sender){
+//    
+//}
+//
+//- (IBAction)AddDelay:(id)sender{
+//    
+//}
+//
+//- (IBAction)RemoveEvent:(id)sender{
+//    
+//}
 
 @end
