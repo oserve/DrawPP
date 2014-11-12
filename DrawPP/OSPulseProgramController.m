@@ -18,15 +18,26 @@
 #pragma mark UI Actions methods
 
 - (IBAction)addChannel:(id)sender {
-	[self.programDataSource addChannelToProgramWithName:@"X"];
-	[self.pulseProgramView reloadData];
+    if (![self.channelText.stringValue isEqual:@""]) {
+        [self.programDataSource addChannelToProgramWithName:self.channelText.stringValue];
+    }
+
+    
+    [self.channelView reloadData];
+    [self.channelEventView reloadData];
+
+
+}
+- (IBAction)selectChannel:(NSTableView *)sender {
+    [self.channelEventView reloadData];
 }
 
 - (IBAction)RemoveChannel:(id)sender {
-	NSInteger channelPosition =[self.pulseProgramView selectedColumn];
+	NSInteger channelPosition =[self.channelView selectedRow];
 	if (channelPosition != -1) {
 		[self.programDataSource removeChannel:[self.programDataSource channelForPosition:channelPosition]];
-		[self.pulseProgramView reloadData];
+		[self.channelView reloadData];
+        [self.channelEventView reloadData];
 
 	}
 }

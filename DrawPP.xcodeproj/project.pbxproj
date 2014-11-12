@@ -18,6 +18,8 @@
 		094665AC14BE3857005CAE76 /* OSPulprog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094665AA14BE3857005CAE76 /* OSPulprog.xib */; };
 		094665AF14BE3857005CAE76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094665AD14BE3857005CAE76 /* MainMenu.xib */; };
 		094665B214BE3857005CAE76 /* OSPulprog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 094665B014BE3857005CAE76 /* OSPulprog.xcdatamodeld */; };
+		094C437A1A10182100E17C2B /* OSChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 094C43791A10182100E17C2B /* OSChannelView.m */; };
+		094C437D1A102AFC00E17C2B /* OSEventChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 094C437C1A102AFC00E17C2B /* OSEventChannelView.m */; };
 		095870D0151D1C9000E51691 /* OSPowerLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870CF151D1C9000E51691 /* OSPowerLevel.m */; };
 		095870D3151D1C9000E51691 /* OSLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870D2151D1C9000E51691 /* OSLength.m */; };
 		095870D6151D1C9000E51691 /* OSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870D5151D1C9000E51691 /* OSChannel.m */; };
@@ -46,6 +48,10 @@
 		094665AB14BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OSPulprog.xib; sourceTree = "<group>"; };
 		094665AE14BE3857005CAE76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		094665B114BE3857005CAE76 /* OSPulprog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OSPulprog.xcdatamodel; sourceTree = "<group>"; };
+		094C43781A10182100E17C2B /* OSChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelView.h; sourceTree = "<group>"; };
+		094C43791A10182100E17C2B /* OSChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelView.m; sourceTree = "<group>"; };
+		094C437B1A102AFC00E17C2B /* OSEventChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSEventChannelView.h; sourceTree = "<group>"; };
+		094C437C1A102AFC00E17C2B /* OSEventChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSEventChannelView.m; sourceTree = "<group>"; };
 		095870C0151D14B500E51691 /* OSPulseProgramControllerDataSourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSPulseProgramControllerDataSourceProtocol.h; sourceTree = "<group>"; };
 		095870CE151D1C9000E51691 /* OSPowerLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPowerLevel.h; sourceTree = "<group>"; };
 		095870CF151D1C9000E51691 /* OSPowerLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPowerLevel.m; sourceTree = "<group>"; };
@@ -173,6 +179,10 @@
 		09955D7814FD693B0079EFA5 /* TableViews Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				094C437B1A102AFC00E17C2B /* OSEventChannelView.h */,
+				094C437C1A102AFC00E17C2B /* OSEventChannelView.m */,
+				094C43781A10182100E17C2B /* OSChannelView.h */,
+				094C43791A10182100E17C2B /* OSChannelView.m */,
 				0942B03C1501985F00F674CC /* OSTableViewDelegate.h */,
 				0942B03D1501985F00F674CC /* OSTableViewDelegate.m */,
 			);
@@ -251,8 +261,10 @@
 				090BBFE3150B8AE500E3E489 /* OSPulseProgramController.m in Sources */,
 				090E7AFE15151437006D6839 /* OSChannelEvent+utilities.m in Sources */,
 				095870D0151D1C9000E51691 /* OSPowerLevel.m in Sources */,
+				094C437D1A102AFC00E17C2B /* OSEventChannelView.m in Sources */,
 				095870D3151D1C9000E51691 /* OSLength.m in Sources */,
 				095870D6151D1C9000E51691 /* OSChannel.m in Sources */,
+				094C437A1A10182100E17C2B /* OSChannelView.m in Sources */,
 				095870D9151D1C9100E51691 /* OSChannelEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
