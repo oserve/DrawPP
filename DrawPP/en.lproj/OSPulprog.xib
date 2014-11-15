@@ -202,7 +202,7 @@
         </customObject>
         <customObject id="WDZ-sn-EyJ" customClass="OSEventChannelView">
             <connections>
-                <outlet property="channelView" destination="foK-T2-cP2" id="Le8-x6-dyZ"/>
+                <outlet property="channelView" destination="MJs-is-gxt" id="bi1-vs-sn5"/>
                 <outlet property="dataSource" destination="-2" id="4bq-ab-CXz"/>
             </connections>
         </customObject>
@@ -250,6 +250,7 @@ Gw
                     </textField>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="197" y="728.5"/>
         </window>
     </objects>
 </document>

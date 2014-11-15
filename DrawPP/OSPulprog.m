@@ -19,7 +19,6 @@
     if (self) {
         if (![self numberOfChannelsInPulseProgram]){
             [self addChannelToProgramWithName:@"New Channel"];
-            [self addNewDelayToChannel:[self channelForPosition:0] atPosition:0 withLength:[NSNumber numberWithFloat:10]];
         }
     }
     return self;
@@ -112,7 +111,7 @@
     NSArray * lengths = [self.managedObjectContext executeFetchRequest:lengthRequest error:nil];
     OSLength * theLength;
     for (OSLength * existingLength in lengths) {
-        if (existingLength.duration == aLength) {
+        if ([existingLength.duration isEqualToNumber:aLength]) {
             theLength = existingLength;
             break;
         }
@@ -129,7 +128,7 @@
     NSArray * powerLevels = [self.managedObjectContext executeFetchRequest:powerLevelRequest error:nil];
     OSPowerLevel * thePowerLevel;
     for (OSPowerLevel * existingPowerLevel in powerLevels) {
-        if (existingPowerLevel.power == aPowerLevel) {
+        if ([existingPowerLevel.power isEqualToNumber:aPowerLevel]) {
             thePowerLevel = existingPowerLevel;
             break;
         }
@@ -173,9 +172,9 @@
 
 	if (!newChannelPosition) {
 		aChannel.isAcquisitionChannel = [NSNumber numberWithBool:YES];
-		[self addNewDelayToChannel:aChannel atPosition:0 withLength:[NSNumber numberWithFloat:10]];
-		[self addNewPulseToChannel:aChannel atPosition:1 withLength:[NSNumber numberWithFloat:10] andPower:[NSNumber numberWithFloat:10]];
-		[self addNewDelayToChannel:aChannel atPosition:2 withLength:[NSNumber numberWithFloat:10]];
+		[self addNewDelayToChannel:aChannel atPosition:0 withLength:[NSNumber numberWithFloat:DEFAULT_LENTGH]];
+		[self addNewPulseToChannel:aChannel atPosition:1 withLength:[NSNumber numberWithFloat:DEFAULT_LENTGH] andPower:[NSNumber numberWithFloat:DEFAULT_POWER]];
+		[self addNewDelayToChannel:aChannel atPosition:2 withLength:[NSNumber numberWithFloat:DEFAULT_LENTGH]];
 	}
 
 	else {

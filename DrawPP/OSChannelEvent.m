@@ -22,4 +22,13 @@
 @dynamic powerLevel;
 @dynamic length;
 
+- (NSString *)description{
+    if (self.length) {
+        return [NSString stringWithFormat:@"%@", self.length.duration ];
+    }
+    else{
+        return [super description];
+    }
+}
+
 @end
