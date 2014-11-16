@@ -22,7 +22,7 @@
 @dynamic powerLevel;
 @dynamic length;
 
-- (NSString *)description{
+- (NSString *)debugDescription{
     if (self.length) {
         return [NSString stringWithFormat:@"%@", self.length.duration ];
     }

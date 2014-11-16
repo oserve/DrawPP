@@ -117,7 +117,7 @@
         }
     }
     if (theLength == nil) {
-        OSLength * theLength = [NSEntityDescription insertNewObjectForEntityForName:@"Length" inManagedObjectContext:self.managedObjectContext];
+        theLength = [NSEntityDescription insertNewObjectForEntityForName:@"Length" inManagedObjectContext:self.managedObjectContext];
         theLength.duration = aLength;
     }
     return theLength;
@@ -134,7 +134,7 @@
         }
     }
     if (thePowerLevel == nil) {
-        OSPowerLevel * thePowerLevel = [NSEntityDescription insertNewObjectForEntityForName:@"PowerLevel" inManagedObjectContext:self.managedObjectContext];
+        thePowerLevel = [NSEntityDescription insertNewObjectForEntityForName:@"PowerLevel" inManagedObjectContext:self.managedObjectContext];
         thePowerLevel.power = aPowerLevel;
     }
     return thePowerLevel;

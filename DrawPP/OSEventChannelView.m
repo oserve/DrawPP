@@ -25,13 +25,9 @@
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     NSString *identifier = [tableColumn identifier];
-    NSInteger aRow = self.channelView.selectedRow;
-//    OSChannel * aChannel = [self.dataSource channelForPosition:aRow];
-//    NSLog(@"%@", aChannel.name);
-    OSChannelEvent * anEvent = [self.dataSource channelEventInChannel:[self.dataSource channelForPosition:aRow] atPosition:row];
-//    NSLog(@"%@", anEvent.length.duration);
+    NSInteger chanelEventRow = self.channelView.selectedRow;
     NSTableCellView *cellView = [tableView makeViewWithIdentifier:identifier owner:self];
-    cellView.textField.stringValue = [NSString stringWithFormat:@"%@", [self.dataSource channelEventInChannel:[self.dataSource channelForPosition:aRow] atPosition:row].length.duration];
+    cellView.textField.stringValue = [NSString stringWithFormat:@"%@", [self.dataSource channelEventInChannel:[self.dataSource channelForPosition:chanelEventRow] atPosition:row].length.duration];
     return cellView;
 }
 
