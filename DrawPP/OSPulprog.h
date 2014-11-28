@@ -32,8 +32,8 @@
 - (NSInteger)lastPositionAvailableOnChannel:(OSChannel *)channel;
 - (NSArray *)channelsInPulseProgram;
 
-- (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(NSNumber *)aLength andPower:(NSNumber *)aPower;
-- (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(NSNumber *)aLength;
+- (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(NSNumber *)aLength Power:(NSNumber *)aPower andName:(NSString *)name;
+- (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(NSNumber *)aLength andName:(NSString *)name;
 - (void)removeChannelEvent:(OSChannelEvent *)aChannelEvent;
 - (NSArray *)channelNames;
 
