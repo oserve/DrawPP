@@ -19,7 +19,7 @@
 
 - (IBAction)addChannel:(id)sender {
     if (![self.channelText.stringValue isEqual:@""]) {
-        [self.programDataSource addChannelToProgramWithName:self.channelText.stringValue];
+        [self.programDataSource addChannelWithName:self.channelText.stringValue];
     }
 
     

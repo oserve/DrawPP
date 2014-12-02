@@ -18,7 +18,7 @@
     self = [super init];
     if (self) {
         if (![self numberOfChannelsInPulseProgram]){
-            [self addChannelToProgramWithName:@"New Channel"];
+            [self addChannelWithName:@"New Channel"];
         }
     }
     return self;
@@ -60,7 +60,7 @@
 
 - (NSInteger)numberOfChannelEvents{
     if (self.numberOfChannelsInPulseProgram) {
-        return [[self channelEventsInChannel:[self.channelsInPulseProgram objectAtIndex:0]] count];
+        return [[self channelEventsInChannel:[self.channelsInPulseProgram lastObject]] count];
     } else {
         return 0;
     }
@@ -129,31 +129,30 @@
     return thePowerLevel;
 }
 
+- (void)addNewPulseToChannel:(OSChannel *)aChannel atPosition:(NSInteger)position withLength:(OSLength *)aLength Power:(OSPowerLevel *)aPower{
 
-- (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(NSNumber *)aLength andName:(NSString *)name
-{
-    [self addNewPulseToChannel:channel atPosition:position withLength:aLength Power:[NSNumber numberWithFloat:0] andName:name];
-}
-
-- (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(NSNumber *)aLength Power:(NSNumber *)aPower andName:(NSString *)name
-{
-	
-	OSChannelEvent * aPulse = [NSEntityDescription insertNewObjectForEntityForName:@"ChannelEvent" inManagedObjectContext:self.managedObjectContext];
-	aPulse.length = [self lengthWithName:name andLength:aLength];
-	aPulse.powerLevel = [self powerLevelWithName:name andLevel:aPower];
-	
-	[self insertNewChannelEvent:aPulse InChannel:channel atPosition:position];
+    OSChannelEvent * aPulse = [NSEntityDescription insertNewObjectForEntityForName:@"ChannelEvent" inManagedObjectContext:self.managedObjectContext];
+    aPulse.length = aLength;
+    aPulse.powerLevel = aPower;
+    
+    [self insertNewChannelEvent:aPulse InChannel:aChannel atPosition:position];
     for (OSChannel * existingChannel in self.channelsInPulseProgram) {
-        if (existingChannel != channel) {
-            if ([self numberOfChannelEventsInChannel:channel] != [self numberOfChannelEventsInChannel:channel]) {
-                [self addNewDelayToChannel:existingChannel atPosition:position withLength:aLength andName:name];
+        if (existingChannel != aChannel) {
+            if ([self numberOfChannelEventsInChannel:aChannel] != [self numberOfChannelEventsInChannel:aChannel]) {
+                [self addNewDelayToChannel:existingChannel atPosition:position withLength:aLength];
             }
         }
     }
-	
+    
 }
 
-- (void)addChannelToProgramWithName:(NSString*)aChannelName{
+- (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(OSLength *)aLength
+{
+    [self addNewPulseToChannel:channel atPosition:position withLength:aLength Power:[self powerLevelWithName:@"zero" andLevel:[NSNumber numberWithFloat:0]]];
+}
+
+
+- (void)addChannelWithName:(NSString*)aChannelName{
 	NSInteger newChannelPosition = [[self channelsInPulseProgram] count];
 
 	OSChannel * aChannel = [NSEntityDescription insertNewObjectForEntityForName:@"Channel" inManagedObjectContext:self.managedObjectContext];
@@ -162,9 +161,9 @@
 
 	if (!newChannelPosition) {
 		aChannel.isAcquisitionChannel = [NSNumber numberWithBool:YES];
-		[self addNewDelayToChannel:aChannel atPosition:0 withLength:[NSNumber numberWithFloat:DEFAULT_LENTGH] andName:@"d1"];
-		[self addNewPulseToChannel:aChannel atPosition:1 withLength:[NSNumber numberWithFloat:DEFAULT_LENTGH] Power:[NSNumber numberWithFloat:DEFAULT_POWER] andName:@"p1"];
-		[self addNewDelayToChannel:aChannel atPosition:2 withLength:[NSNumber numberWithFloat:DEFAULT_LENTGH] andName:@"d2"];
+		[self addNewDelayToChannel:aChannel atPosition:0 withLength:[self lengthWithName:@"d1" andLength:[NSNumber numberWithFloat:DEFAULT_LENTGH]]];
+		[self addNewPulseToChannel:aChannel atPosition:1 withLength:[self lengthWithName:@"p1" andLength:[NSNumber numberWithFloat:DEFAULT_LENTGH]] Power:[self powerLevelWithName:@"pl1" andLevel:[NSNumber numberWithFloat:DEFAULT_POWER]]];
+        [self addNewDelayToChannel:aChannel atPosition:0 withLength:[self lengthWithName:@"d1" andLength:[NSNumber numberWithFloat:DEFAULT_LENTGH]]];
 	}
 
 	else {
@@ -194,7 +193,6 @@
 
    [self.managedObjectContext deleteObject:channel];
 }
-
 
 #pragma mark Move elements
 

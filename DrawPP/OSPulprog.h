@@ -26,14 +26,16 @@
 - (OSChannelEvent *)channelEventInChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;
 
 #pragma mark Interface controller datasource methods
-- (void)addChannelToProgramWithName:(NSString*)aChannelName;
+- (void)addChannelWithName:(NSString*)aChannelName;
 - (void)removeChannel:(OSChannel *)channel;
 
 - (NSInteger)lastPositionAvailableOnChannel:(OSChannel *)channel;
 - (NSArray *)channelsInPulseProgram;
 
-- (void)addNewPulseToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(NSNumber *)aLength Power:(NSNumber *)aPower andName:(NSString *)name;
-- (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(NSNumber *)aLength andName:(NSString *)name;
+- (OSLength *)lengthWithName:(NSString *)name andLength:(NSNumber *)aLength;
+- (OSPowerLevel *)powerLevelWithName:(NSString *)name andLevel:(NSNumber *)aPowerLevel;
+- (void)addNewPulseToChannel:(OSChannel *)aChannel atPosition:(NSInteger)position withLength:(OSLength *)aLength Power:(OSPowerLevel *)aPower;
+- (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(OSLength *)aLength;
 - (void)removeChannelEvent:(OSChannelEvent *)aChannelEvent;
 - (NSArray *)channelNames;
 
