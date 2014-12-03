@@ -169,7 +169,7 @@
 	else {
 		NSInteger eventPosition = 0;
         for (OSChannelEvent * anEvent in [self channelEventsInChannel:[self channelForPosition:0]]) {
-            [self insertNewChannelEvent:anEvent InChannel:aChannel atPosition:eventPosition];
+            [self addNewDelayToChannel:aChannel atPosition:eventPosition withLength:anEvent.length];
             eventPosition++;
         }
 	}
