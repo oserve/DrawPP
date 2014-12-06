@@ -11,7 +11,7 @@
 
 @implementation OSPulseProgramController
 
-@synthesize pulseProgramView = _pulseProgramView;
+//@synthesize pulseProgramView = _pulseProgramView;
 @synthesize programDataSource = _programDataSource;
 
 
@@ -21,11 +21,8 @@
     if (![self.channelText.stringValue isEqual:@""]) {
         [self.programDataSource addChannelWithName:self.channelText.stringValue];
     }
-
-    
-    [self.channelView reloadData];
-    [self.channelEventView reloadData];
-
+    [self refreshUI];
+    self.channelText.stringValue = @"";
 
 }
 - (IBAction)selectChannel:(NSTableView *)sender {
@@ -36,10 +33,26 @@
 	NSInteger channelPosition =[self.channelView selectedRow];
 	if (channelPosition != -1) {
 		[self.programDataSource removeChannel:[self.programDataSource channelForPosition:channelPosition]];
-		[self.channelView reloadData];
-        [self.channelEventView reloadData];
-
+        [self refreshUI];
 	}
+}
+
+- (IBAction)channelUp:(id)sender {
+    NSInteger channelPosition =[self.channelView selectedRow];
+    if (channelPosition > 0) {
+        [self.programDataSource moveChannelFromPosition:channelPosition toPosition:channelPosition-1];
+        [self refreshUI];
+    }
+
+}
+
+- (IBAction)channelDown:(id)sender {
+    NSInteger channelPosition =[self.channelView selectedRow];
+    if (channelPosition < (self.channelView.numberOfRows)) {
+        [self.programDataSource moveChannelFromPosition:channelPosition toPosition:channelPosition+1];
+        [self refreshUI];
+    }
+    
 }
 
 //- (IBAction)AddPulse:(id)sender){
@@ -53,5 +66,10 @@
 //- (IBAction)RemoveEvent:(id)sender{
 //    
 //}
+
+- (void)refreshUI{
+    [self.channelView reloadData];
+    [self.channelEventView reloadData];
+}
 
 @end

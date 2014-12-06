@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 MyOwnCompany. All rights reserved.
 //
 
-#import "OSEventChannelView.h"
+#import "OSChannelEventView.h"
 #import "OSChannelEvent+utilities.h"
 #import "OSLength.h"
 #import "OSChannel.h"
 
 
-@implementation OSEventChannelView
+@implementation OSChannelEventView
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
     if (self.channelView.selectedRow == -1) {

@@ -14,5 +14,6 @@
 -(void)addChannelWithName:(NSString *)aChannelName;
 -(void)removeChannel:(OSChannel *)aChannel;
 -(NSArray *)channelNames;
+- (void)moveChannelFromPosition:(NSInteger)previousPosition toPosition:(NSInteger)newPosition;
 
 @end

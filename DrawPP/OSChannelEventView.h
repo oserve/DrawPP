@@ -10,7 +10,7 @@
 #import "OSPulseProgramDataSourceProtocol.h"
 
 
-@interface OSEventChannelView : NSObject <NSTableViewDelegate, NSTableViewDataSource>
+@interface OSChannelEventView : NSObject <NSTableViewDelegate, NSTableViewDataSource>
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment version="1070" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="OSPulprog"/>
@@ -11,14 +11,14 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" animationBehavior="default" id="100040">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="283" y="305" width="309" height="451"/>
+            <rect key="contentRect" x="283" y="305" width="309" height="491"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="100041">
-                <rect key="frame" x="0.0" y="0.0" width="309" height="451"/>
+                <rect key="frame" x="0.0" y="0.0" width="309" height="491"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cap-qG-DFJ">
-                        <rect key="frame" x="14" y="5" width="145" height="32"/>
+                        <rect key="frame" x="14" y="45" width="145" height="32"/>
                         <buttonCell key="cell" type="push" title="Add Channel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZYP-fJ-ace">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -28,7 +28,7 @@
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mn2-tg-sQb">
-                        <rect key="frame" x="20" y="41" width="133" height="22"/>
+                        <rect key="frame" x="20" y="81" width="133" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="HwM-sb-ewH">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -36,8 +36,8 @@
                         </textFieldCell>
                     </textField>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czy-uG-PoA">
-                        <rect key="frame" x="20" y="71" width="133" height="360"/>
-                        <clipView key="contentView" ambiguous="YES" misplaced="YES" id="A1u-3Q-9ug">
+                        <rect key="frame" x="20" y="111" width="133" height="360"/>
+                        <clipView key="contentView" misplaced="YES" id="A1u-3Q-9ug">
                             <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -48,7 +48,7 @@
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
                                         <tableColumn width="128" minWidth="40" maxWidth="1000" id="6t8-VL-cMh">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Channels">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -103,8 +103,8 @@
                         </tableHeaderView>
                     </scrollView>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oA-Y9-Ybs">
-                        <rect key="frame" x="161" y="71" width="128" height="360"/>
-                        <clipView key="contentView" ambiguous="YES" misplaced="YES" id="pxs-ys-DMd">
+                        <rect key="frame" x="161" y="111" width="128" height="360"/>
+                        <clipView key="contentView" misplaced="YES" id="pxs-ys-DMd">
                             <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -115,7 +115,7 @@
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
                                         <tableColumn width="123" minWidth="40" maxWidth="1000" id="nX8-br-gDf">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Events">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -148,8 +148,8 @@
                                         </tableColumn>
                                     </tableColumns>
                                     <connections>
-                                        <outlet property="dataSource" destination="WDZ-sn-EyJ" id="HBy-6q-smm"/>
-                                        <outlet property="delegate" destination="WDZ-sn-EyJ" id="kaz-kw-PsT"/>
+                                        <outlet property="dataSource" destination="ED3-sn-Oy4" id="44y-ls-ANg"/>
+                                        <outlet property="delegate" destination="ED3-sn-Oy4" id="z5C-1d-gSK"/>
                                     </connections>
                                 </tableView>
                             </subviews>
@@ -169,7 +169,7 @@
                         </tableHeaderView>
                     </scrollView>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3cY-Ak-2WM">
-                        <rect key="frame" x="155" y="5" width="140" height="32"/>
+                        <rect key="frame" x="155" y="45" width="140" height="32"/>
                         <buttonCell key="cell" type="push" title="Remove Channel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e7w-lc-3Qs">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -178,9 +178,29 @@
                             <action selector="RemoveChannel:" target="100408" id="Wb5-YY-ykg"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1dw-7U-SxH">
+                        <rect key="frame" x="14" y="13" width="145" height="32"/>
+                        <buttonCell key="cell" type="push" title="Channel Up" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="67d-O1-BRm">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="channelUp:" target="100408" id="S8R-Xk-pyE"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9f-8F-aU8">
+                        <rect key="frame" x="155" y="12" width="145" height="32"/>
+                        <buttonCell key="cell" type="push" title="Channel Down" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DDd-v7-nOc">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="channelDown:" target="100408" id="qEh-nb-ecr"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="197.5" y="366.5"/>
+            <point key="canvasLocation" x="174.5" y="304.5"/>
         </window>
         <customObject id="100197" customClass="OSTableViewDelegate">
             <connections>
@@ -200,10 +220,10 @@
                 <outlet property="dataSource" destination="-2" id="Ths-Kk-dJb"/>
             </connections>
         </customObject>
-        <customObject id="WDZ-sn-EyJ" customClass="OSEventChannelView">
+        <customObject id="ED3-sn-Oy4" customClass="OSChannelEventView">
             <connections>
-                <outlet property="channelView" destination="MJs-is-gxt" id="bi1-vs-sn5"/>
-                <outlet property="dataSource" destination="-2" id="4bq-ab-CXz"/>
+                <outlet property="channelView" destination="MJs-is-gxt" id="gsK-ru-CZu"/>
+                <outlet property="dataSource" destination="-2" id="Yg5-lZ-Lzo"/>
             </connections>
         </customObject>
         <window title="Create Channel ..." allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="ToX-Uc-vCk">

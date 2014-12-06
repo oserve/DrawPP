@@ -13,6 +13,6 @@
 @property (weak) IBOutlet NSTableView *channelView;
 @property (weak) IBOutlet NSTableView *channelEventView;
 
-@property (weak, atomic) IBOutlet NSTableView * pulseProgramView;
+//@property (weak, atomic) IBOutlet NSTableView * pulseProgramView;
 @property (weak, atomic) IBOutlet id <OSPulseProgramControllerDataSourceProtocol> programDataSource;
 @end

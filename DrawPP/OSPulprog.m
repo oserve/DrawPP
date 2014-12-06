@@ -197,32 +197,45 @@
 #pragma mark Move elements
 
 - (void)moveChannelEvent:(OSChannelEvent *)aChannelEvent ToPosition:(NSInteger)position{
-	NSMutableArray * allEvents = [[self channelEventsInChannel:aChannelEvent.channel] mutableCopy];
-	OSChannel * currentChannel = aChannelEvent.channel;
-//Resort channelEvents in currentChannel
-	[allEvents removeObject:aChannelEvent];
-	[allEvents insertObject:aChannelEvent atIndex:position];//Leave the sorting to apple's experts
-	NSInteger newPosition = 0;
-	for (OSChannelEvent * event in allEvents) {
-		event.positionOnChannel = [NSNumber numberWithInteger:newPosition];
-		newPosition +=1;
-	}
+    for (OSChannel * aChannel in [self channelsInPulseProgram]) {
+        NSMutableArray * allEventsInChannel = [[self channelEventsInChannel:aChannel] mutableCopy];
+//        OSChannel * currentChannel = aChannelEvent.channel;
+        //Resort channelEvents in currentChannel
+        [allEventsInChannel removeObject:aChannelEvent];
+        [allEventsInChannel insertObject:aChannelEvent atIndex:position];//Leave the sorting to apple's experts
+        NSInteger newPosition = 0;
+        for (OSChannelEvent * event in allEventsInChannel) {
+            event.positionOnChannel = [NSNumber numberWithInteger:newPosition];
+            newPosition++;
+        }
+//        currentChannel.channelEvents = [NSSet setWithArray:allEventsInChannel];
+
+    }
 	//Should also adjust the length to other events at the same position on other channels if any
 
-	if ([[self channelsInPulseProgram] count] > 1) {
-		for (OSChannel * aChannel in [self channelsInPulseProgram]) {
-			if (aChannel != currentChannel) {
-				aChannelEvent.length.duration = [NSNumber numberWithInteger:[[[self channelEventsInChannel:aChannel] objectAtIndex:position] length]];
-				break;
-			}
-		}
-	}
-	currentChannel.channelEvents = [NSSet setWithArray:allEvents];
+//	if ([[self channelsInPulseProgram] count] > 1) {
+//		for (OSChannel * aChannel in [self channelsInPulseProgram]) {
+//			if (aChannel != currentChannel) {
+//				aChannelEvent.length.duration = [NSNumber numberWithInteger:[[[self channelEventsInChannel:aChannel] objectAtIndex:position] length]];
+//                break;
+//			}
+//		}
+//	}
 }
 
-- (void)moveChannel:(OSChannel *)channel toPosition:(NSInteger)position{
-    //TO DO
-	
+- (void)moveChannelFromPosition:(NSInteger)previousPosition toPosition:(NSInteger)newPosition{
+
+    if (newPosition >= 0 && newPosition <= [self numberOfChannelsInPulseProgram]) {
+        NSMutableArray * allChannels = [[self channelsInPulseProgram] mutableCopy];
+        OSChannel * movingChannel = [self channelForPosition:previousPosition];
+        [allChannels removeObject:movingChannel];
+        [allChannels insertObject:movingChannel atIndex:newPosition];
+        NSInteger newIndex = 0;
+        for (OSChannel * aChannel in allChannels) {
+            aChannel.positionOnGraph = [NSNumber numberWithInteger:newIndex];
+            newIndex++;
+        }
+    }
 }
 
 - (NSArray *)channelNames{
