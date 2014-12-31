@@ -17,6 +17,7 @@
 @dynamic name;
 @dynamic nucleus;
 @dynamic piPulseLength;
+@dynamic piPulsePower;
 @dynamic positionOnGraph;
 @dynamic channelEvents;
 @dynamic powerLevels;

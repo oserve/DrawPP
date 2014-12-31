@@ -10,6 +10,7 @@
 		090BBFE3150B8AE500E3E489 /* OSPulseProgramController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */; };
 		090E7AFE15151437006D6839 /* OSChannelEvent+utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 090E7AFD15151437006D6839 /* OSChannelEvent+utilities.m */; };
 		0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942B03D1501985F00F674CC /* OSTableViewDelegate.m */; };
+		09433F621A542A2B0084A002 /* OSChannelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09433F611A542A2B0084A002 /* OSChannelController.m */; };
 		0946659614BE3857005CAE76 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0946659514BE3857005CAE76 /* Cocoa.framework */; };
 		094665A014BE3857005CAE76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0946659E14BE3857005CAE76 /* InfoPlist.strings */; };
 		094665A314BE3857005CAE76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 094665A214BE3857005CAE76 /* main.m */; };
@@ -33,6 +34,8 @@
 		090E7AFD15151437006D6839 /* OSChannelEvent+utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OSChannelEvent+utilities.m"; sourceTree = "<group>"; };
 		0942B03C1501985F00F674CC /* OSTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSTableViewDelegate.h; sourceTree = "<group>"; };
 		0942B03D1501985F00F674CC /* OSTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSTableViewDelegate.m; sourceTree = "<group>"; };
+		09433F601A542A2B0084A002 /* OSChannelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelController.h; sourceTree = "<group>"; };
+		09433F611A542A2B0084A002 /* OSChannelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelController.m; sourceTree = "<group>"; };
 		0946659114BE3857005CAE76 /* DrawPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0946659514BE3857005CAE76 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0946659814BE3857005CAE76 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -79,6 +82,8 @@
 		090E7AFF151552B7006D6839 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				09433F601A542A2B0084A002 /* OSChannelController.h */,
+				09433F611A542A2B0084A002 /* OSChannelController.m */,
 				090BBFE1150B8AE500E3E489 /* OSPulseProgramController.h */,
 				090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */,
 			);
@@ -257,6 +262,7 @@
 				094665A314BE3857005CAE76 /* main.m in Sources */,
 				094665A914BE3857005CAE76 /* OSPulprog.m in Sources */,
 				094665B214BE3857005CAE76 /* OSPulprog.xcdatamodeld in Sources */,
+				09433F621A542A2B0084A002 /* OSChannelController.m in Sources */,
 				0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */,
 				090BBFE3150B8AE500E3E489 /* OSPulseProgramController.m in Sources */,
 				090E7AFE15151437006D6839 /* OSChannelEvent+utilities.m in Sources */,

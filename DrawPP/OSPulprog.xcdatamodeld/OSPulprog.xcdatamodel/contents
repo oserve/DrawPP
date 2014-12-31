@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Channel" representedClassName="OSChannel">
-        <attribute name="isAcquisitionChannel" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="nucleus" optional="YES" attributeType="String"/>
-        <attribute name="piPulseLength" optional="YES" attributeType="Float" defaultValueString="0"/>
-        <attribute name="positionOnGraph" optional="YES" attributeType="Integer 16"/>
+        <attribute name="isAcquisitionChannel" optional="YES" attributeType="Boolean" defaultValueString="NO">
+            <userInfo/>
+        </attribute>
+        <attribute name="name" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="nucleus" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="piPulseLength" optional="YES" attributeType="Float" defaultValueString="0">
+            <userInfo/>
+        </attribute>
+        <attribute name="piPulsePower" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="positionOnGraph" optional="YES" attributeType="Integer 16">
+            <userInfo/>
+        </attribute>
         <relationship name="channelEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChannelEvent" inverseName="channel" inverseEntity="ChannelEvent" syncable="YES"/>
         <relationship name="powerLevels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PowerLevel" inverseName="channel" inverseEntity="PowerLevel" syncable="YES"/>
+        <userInfo/>
     </entity>
     <entity name="ChannelEvent" representedClassName="OSChannelEvent" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="phase" optional="YES" attributeType="String"/>
-        <attribute name="positionOnChannel" optional="YES" attributeType="Integer 16"/>
-        <attribute name="shape" optional="YES" attributeType="String" defaultValueString="square"/>
+        <attribute name="phase" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="positionOnChannel" optional="YES" attributeType="Integer 16">
+            <userInfo/>
+        </attribute>
+        <attribute name="shape" optional="YES" attributeType="String" defaultValueString="square">
+            <userInfo/>
+        </attribute>
         <relationship name="channel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="channelEvents" inverseEntity="Channel" syncable="YES"/>
         <relationship name="length" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Length" inverseName="channelEvents" inverseEntity="Length" syncable="YES"/>
         <relationship name="powerLevel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PowerLevel" inverseName="channelEvents" inverseEntity="PowerLevel" syncable="YES"/>
@@ -30,9 +47,9 @@
         <relationship name="channelEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChannelEvent" inverseName="powerLevel" inverseEntity="ChannelEvent" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Channel" positionX="925" positionY="-633" width="128" height="150"/>
-        <element name="ChannelEvent" positionX="738" positionY="-729" width="144" height="165"/>
-        <element name="PowerLevel" positionX="556" positionY="-549" width="128" height="105"/>
+        <element name="Channel" positionX="925" positionY="-633" width="128" height="163"/>
+        <element name="ChannelEvent" positionX="738" positionY="-729" width="144" height="133"/>
         <element name="Length" positionX="556" positionY="-729" width="128" height="90"/>
+        <element name="PowerLevel" positionX="556" positionY="-549" width="128" height="105"/>
     </elements>
 </model>

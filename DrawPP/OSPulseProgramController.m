@@ -30,7 +30,7 @@
 }
 
 - (IBAction)RemoveChannel:(id)sender {
-	NSInteger channelPosition =[self.channelView selectedRow];
+	NSInteger channelPosition =self.channelView.selectedRow;
 	if (channelPosition != -1) {
 		[self.programDataSource removeChannel:[self.programDataSource channelForPosition:channelPosition]];
         [self refreshUI];
@@ -38,34 +38,36 @@
 }
 
 - (IBAction)channelUp:(id)sender {
-    NSInteger channelPosition =[self.channelView selectedRow];
+    NSInteger channelPosition =self.channelView.selectedRow;
     if (channelPosition > 0) {
         [self.programDataSource moveChannelFromPosition:channelPosition toPosition:channelPosition-1];
         [self refreshUI];
+        [self.channelView selectRowIndexes:[NSIndexSet indexSetWithIndex:channelPosition-1] byExtendingSelection:NO];
     }
 
 }
 
 - (IBAction)channelDown:(id)sender {
-    NSInteger channelPosition =[self.channelView selectedRow];
+    NSInteger channelPosition =self.channelView.selectedRow;
     if (channelPosition < (self.channelView.numberOfRows)) {
         [self.programDataSource moveChannelFromPosition:channelPosition toPosition:channelPosition+1];
         [self refreshUI];
+        [self.channelView selectRowIndexes:[NSIndexSet indexSetWithIndex:channelPosition-1] byExtendingSelection:NO];
     }
     
 }
 
-//- (IBAction)AddPulse:(id)sender){
-//    
-//}
-//
-//- (IBAction)AddDelay:(id)sender{
-//    
-//}
-//
-//- (IBAction)RemoveEvent:(id)sender{
-//    
-//}
+- (IBAction)AddEvent:(id)sender {
+    if (![self.eventText.stringValue isEqual:@""]) {
+        self.programDataSource;
+    }
+    [self refreshUI];
+    self.eventText.stringValue = @"";
+    
+}
+
+- (IBAction)removeEvent:(id)sender {
+}
 
 - (void)refreshUI{
     [self.channelView reloadData];

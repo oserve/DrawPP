@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) NSString * nucleus;
 @property (nonatomic, strong) NSNumber * piPulseLength;
+@property (nonatomic, strong) NSNumber * piPulsePower;
 @property (nonatomic, strong) NSNumber * positionOnGraph;
 @property (nonatomic, strong) NSSet *channelEvents;
 @property (nonatomic, strong) NSSet *powerLevels;

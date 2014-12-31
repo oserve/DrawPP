@@ -16,11 +16,9 @@
 
 @interface OSPulprog : NSPersistentDocument <OSPulseProgramDataSourceProtocol, OSPulseProgramControllerDataSourceProtocol> {
 @private
-
 }
 #pragma mark PulseProgramView controller datasource protocol
 - (OSChannel *)channelForPosition:(NSUInteger)position;
-- (NSInteger)numberOfChannelsInPulseProgram;
 //- (NSInteger)numberOfChannelEventsInChannel:(OSChannel *)aChannel;
 - (NSInteger)numberOfChannelEvents;
 - (OSChannelEvent *)channelEventInChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;
@@ -30,14 +28,20 @@
 - (void)removeChannel:(OSChannel *)channel;
 - (void)moveChannelFromPosition:(NSInteger)previousPosition toPosition:(NSInteger)newPosition;
 
-- (NSInteger)lastPositionAvailableOnChannel:(OSChannel *)channel;
 - (NSArray *)channelsInPulseProgram;
 
-- (OSLength *)lengthWithName:(NSString *)name andLength:(NSNumber *)aLength;
+- (OSLength *)lengthWithName:(NSString *)name andDuration:(NSNumber *)aLength;
 - (OSPowerLevel *)powerLevelWithName:(NSString *)name andLevel:(NSNumber *)aPowerLevel;
+
+- (void)addChannelEventWithName:(NSString*)anEventName;
+- (void)moveChannelEventFromPosition:(NSInteger)previousPosition ToPosition:(NSInteger)newPosition;
 - (void)addNewPulseToChannel:(OSChannel *)aChannel atPosition:(NSInteger)position withLength:(OSLength *)aLength Power:(OSPowerLevel *)aPower;
 - (void)addNewDelayToChannel:(OSChannel *)channel atPosition:(NSInteger)position withLength:(OSLength *)aLength;
 - (void)removeChannelEvent:(OSChannelEvent *)aChannelEvent;
-- (NSArray *)channelNames;
 
+//- (NSArray *)channelNames;
+
+@property (atomic, readonly) OSPowerLevel * zeroPower;
+@property (atomic, readonly) NSInteger numberOfChannelsInPulseProgram;
+@property (atomic, readonly) NSArray * channelNames;
 @end

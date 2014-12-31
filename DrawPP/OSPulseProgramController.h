@@ -12,6 +12,7 @@
 @property (weak) IBOutlet NSTextField *channelText;
 @property (weak) IBOutlet NSTableView *channelView;
 @property (weak) IBOutlet NSTableView *channelEventView;
+@property (weak) IBOutlet NSTextField *eventText;
 
 //@property (weak, atomic) IBOutlet NSTableView * pulseProgramView;
 @property (weak, atomic) IBOutlet id <OSPulseProgramControllerDataSourceProtocol> programDataSource;

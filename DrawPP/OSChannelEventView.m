@@ -27,7 +27,8 @@
     NSString *identifier = [tableColumn identifier];
     NSInteger chanelEventRow = self.channelView.selectedRow;
     NSTableCellView *cellView = [tableView makeViewWithIdentifier:identifier owner:self];
-    cellView.textField.stringValue = [NSString stringWithFormat:@"%@", [self.dataSource channelEventInChannel:[self.dataSource channelForPosition:chanelEventRow] atPosition:row].length.duration];
+//    cellView.textField.stringValue = [NSString stringWithFormat:@"%@", [self.dataSource channelEventInChannel:[self.dataSource channelForPosition:chanelEventRow] atPosition:row].length.duration];
+    cellView.textField.stringValue = [self.dataSource channelEventInChannel:[self.dataSource channelForPosition:chanelEventRow] atPosition:row].length.name;
     return cellView;
 }
 
