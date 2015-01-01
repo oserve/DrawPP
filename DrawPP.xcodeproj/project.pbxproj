@@ -26,6 +26,8 @@
 		095870D3151D1C9000E51691 /* OSLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870D2151D1C9000E51691 /* OSLength.m */; };
 		095870D6151D1C9000E51691 /* OSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870D5151D1C9000E51691 /* OSChannel.m */; };
 		095870D9151D1C9100E51691 /* OSChannelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 095870D8151D1C9100E51691 /* OSChannelEvent.m */; };
+		09FC27BC1A55F62D00EC39B7 /* OSPowerLevelsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FC27BB1A55F62D00EC39B7 /* OSPowerLevelsController.m */; };
+		09FC27BF1A55F67800EC39B7 /* OSLengthsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FC27BE1A55F67800EC39B7 /* OSLengthsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,10 @@
 		095870D7151D1C9100E51691 /* OSChannelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelEvent.h; sourceTree = "<group>"; };
 		095870D8151D1C9100E51691 /* OSChannelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelEvent.m; sourceTree = "<group>"; };
 		09F2D7DC1502D2A200E47851 /* OSPulseProgramDataSourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSPulseProgramDataSourceProtocol.h; sourceTree = "<group>"; };
+		09FC27BA1A55F62D00EC39B7 /* OSPowerLevelsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPowerLevelsController.h; sourceTree = "<group>"; };
+		09FC27BB1A55F62D00EC39B7 /* OSPowerLevelsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPowerLevelsController.m; sourceTree = "<group>"; };
+		09FC27BD1A55F67800EC39B7 /* OSLengthsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSLengthsController.h; sourceTree = "<group>"; };
+		09FC27BE1A55F67800EC39B7 /* OSLengthsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSLengthsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,10 @@
 				09433F611A542A2B0084A002 /* OSChannelController.m */,
 				093541DF1A55B85500A3EABD /* OSChannelEventsController.h */,
 				093541E01A55B85500A3EABD /* OSChannelEventsController.m */,
+				09FC27BA1A55F62D00EC39B7 /* OSPowerLevelsController.h */,
+				09FC27BB1A55F62D00EC39B7 /* OSPowerLevelsController.m */,
+				09FC27BD1A55F67800EC39B7 /* OSLengthsController.h */,
+				09FC27BE1A55F67800EC39B7 /* OSLengthsController.m */,
 			);
 			name = "CoreData Objects Controllers";
 			sourceTree = "<group>";
@@ -291,9 +301,11 @@
 				095870D0151D1C9000E51691 /* OSPowerLevel.m in Sources */,
 				094C437D1A102AFC00E17C2B /* OSChannelEventView.m in Sources */,
 				095870D3151D1C9000E51691 /* OSLength.m in Sources */,
+				09FC27BF1A55F67800EC39B7 /* OSLengthsController.m in Sources */,
 				095870D6151D1C9000E51691 /* OSChannel.m in Sources */,
 				094C437A1A10182100E17C2B /* OSChannelView.m in Sources */,
 				095870D9151D1C9100E51691 /* OSChannelEvent.m in Sources */,
+				09FC27BC1A55F62D00EC39B7 /* OSPowerLevelsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
