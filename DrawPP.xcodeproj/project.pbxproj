@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		090BBFE3150B8AE500E3E489 /* OSPulseProgramController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */; };
 		090E7AFE15151437006D6839 /* OSChannelEvent+utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 090E7AFD15151437006D6839 /* OSChannelEvent+utilities.m */; };
+		093541E11A55B85500A3EABD /* OSChannelEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 093541E01A55B85500A3EABD /* OSChannelEventsController.m */; };
 		0942B03E1501985F00F674CC /* OSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942B03D1501985F00F674CC /* OSTableViewDelegate.m */; };
 		09433F621A542A2B0084A002 /* OSChannelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09433F611A542A2B0084A002 /* OSChannelController.m */; };
 		0946659614BE3857005CAE76 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0946659514BE3857005CAE76 /* Cocoa.framework */; };
@@ -32,6 +33,8 @@
 		090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPulseProgramController.m; sourceTree = "<group>"; };
 		090E7AFC15151437006D6839 /* OSChannelEvent+utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OSChannelEvent+utilities.h"; sourceTree = "<group>"; };
 		090E7AFD15151437006D6839 /* OSChannelEvent+utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OSChannelEvent+utilities.m"; sourceTree = "<group>"; };
+		093541DF1A55B85500A3EABD /* OSChannelEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelEventsController.h; sourceTree = "<group>"; };
+		093541E01A55B85500A3EABD /* OSChannelEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSChannelEventsController.m; sourceTree = "<group>"; };
 		0942B03C1501985F00F674CC /* OSTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSTableViewDelegate.h; sourceTree = "<group>"; };
 		0942B03D1501985F00F674CC /* OSTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSTableViewDelegate.m; sourceTree = "<group>"; };
 		09433F601A542A2B0084A002 /* OSChannelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSChannelController.h; sourceTree = "<group>"; };
@@ -82,10 +85,8 @@
 		090E7AFF151552B7006D6839 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				09433F601A542A2B0084A002 /* OSChannelController.h */,
-				09433F611A542A2B0084A002 /* OSChannelController.m */,
-				090BBFE1150B8AE500E3E489 /* OSPulseProgramController.h */,
-				090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */,
+				093541DE1A55B3F500A3EABD /* CoreData Objects Controllers */,
+				093541DD1A55632700A3EABD /* View Controllers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -105,6 +106,26 @@
 				090E7AFD15151437006D6839 /* OSChannelEvent+utilities.m */,
 			);
 			name = "Model Classes";
+			sourceTree = "<group>";
+		};
+		093541DD1A55632700A3EABD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				090BBFE1150B8AE500E3E489 /* OSPulseProgramController.h */,
+				090BBFE2150B8AE500E3E489 /* OSPulseProgramController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		093541DE1A55B3F500A3EABD /* CoreData Objects Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				09433F601A542A2B0084A002 /* OSChannelController.h */,
+				09433F611A542A2B0084A002 /* OSChannelController.m */,
+				093541DF1A55B85500A3EABD /* OSChannelEventsController.h */,
+				093541E01A55B85500A3EABD /* OSChannelEventsController.m */,
+			);
+			name = "CoreData Objects Controllers";
 			sourceTree = "<group>";
 		};
 		0946658614BE3857005CAE76 = {
@@ -146,9 +167,9 @@
 		0946659B14BE3857005CAE76 /* DrawPP */ = {
 			isa = PBXGroup;
 			children = (
+				092A2B0F14FA635B00C2BA5D /* Model Classes */,
 				090E7AFF151552B7006D6839 /* Controllers */,
 				09955D7814FD693B0079EFA5 /* TableViews Delegates */,
-				092A2B0F14FA635B00C2BA5D /* Model Classes */,
 				095870C1151D14C800E51691 /* Protocols */,
 				094665A714BE3857005CAE76 /* OSPulprog.h */,
 				094665A814BE3857005CAE76 /* OSPulprog.m */,
@@ -259,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				093541E11A55B85500A3EABD /* OSChannelEventsController.m in Sources */,
 				094665A314BE3857005CAE76 /* main.m in Sources */,
 				094665A914BE3857005CAE76 /* OSPulprog.m in Sources */,
 				094665B214BE3857005CAE76 /* OSPulprog.xcdatamodeld in Sources */,
