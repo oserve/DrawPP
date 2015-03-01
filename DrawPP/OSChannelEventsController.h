@@ -12,7 +12,7 @@
 @interface OSChannelEventsController : NSObject
 - (instancetype)initControllerWithContext:(NSManagedObjectContext *)context;
 
-- (OSChannelEvent *)newChannelEvent:(NSDictionary *)channelEventParameters;
+- (OSChannelEvent *)newChannelEventWithParameters:(NSDictionary *)channelEventParameters;
 - (void)moveChannelEventFromPosition:(NSUInteger)previousPosition toPosition:(NSUInteger)newPosition inChannels:(NSArray *)channels;
 - (void)removeChannelEvent:(OSChannelEvent*)aChannelEvent;
 - (OSChannelEvent *)channelEventInChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;

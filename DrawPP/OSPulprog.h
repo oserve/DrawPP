@@ -13,6 +13,10 @@
 #import "OSLength.h"
 #import "OSPulseProgramDataSourceProtocol.h"
 #import "OSPulseProgramControllerDataSourceProtocol.h"
+#import "OSChannelController.h"
+#import "OSChannelEventsController.h"
+#import "OSPowerLevelsController.h"
+#import "OSLengthsController.h"
 
 @interface OSPulprog : NSPersistentDocument <OSPulseProgramDataSourceProtocol, OSPulseProgramControllerDataSourceProtocol> {
 @private
@@ -20,18 +24,16 @@
 #pragma mark PulseProgramView controller datasource protocol
 - (OSChannel *)channelForPosition:(NSUInteger)position;
 //- (NSInteger)numberOfChannelEventsInChannel:(OSChannel *)aChannel;
-- (NSInteger)numberOfChannelEvents;
+- (NSUInteger)numberOfChannelEvents;
 - (OSChannelEvent *)channelEventInChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position;
 
 #pragma mark Interface controller datasource methods
-- (void)addChannelWithName:(NSString*)aChannelName;
+//- (void)addChannelWithName:(NSString*)aChannelName;
+- (void)addChannelWithParameters:(NSDictionary *)newChannelParameters;
 - (void)removeChannel:(OSChannel *)channel;
-- (void)moveChannelFromPosition:(NSInteger)previousPosition toPosition:(NSInteger)newPosition;
+- (void)moveChannelFromPosition:(NSUInteger)previousPosition toPosition:(NSUInteger)newPosition;
 
 - (NSArray *)channelsInPulseProgram;
-
-- (OSLength *)lengthWithName:(NSString *)name andDuration:(NSNumber *)aLength;
-- (OSPowerLevel *)powerLevelWithName:(NSString *)name andLevel:(NSNumber *)aPowerLevel;
 
 - (void)addChannelEventWithName:(NSString*)anEventName;
 - (void)moveChannelEventFromPosition:(NSInteger)previousPosition ToPosition:(NSInteger)newPosition;
@@ -42,6 +44,10 @@
 //- (NSArray *)channelNames;
 
 @property (atomic, readonly) OSPowerLevel * zeroPower;
-@property (atomic, readonly) NSInteger numberOfChannelsInPulseProgram;
+@property (atomic, readonly) NSUInteger numberOfChannelsInPulseProgram;
 @property (atomic, readonly) NSArray * channelNames;
+@property (atomic) OSChannelController * channelController;
+@property (atomic) OSChannelEventsController * channelEventsController;
+@property (atomic) OSPowerLevelsController * powersController;
+@property (atomic) OSLengthsController * lengthsController;
 @end

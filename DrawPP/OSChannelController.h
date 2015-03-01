@@ -14,7 +14,7 @@
 - (OSChannel *)channelForPosition:(NSUInteger)position;
 - (OSChannel *)channelWithName:(NSString *)name;
 
-- (OSChannel *)newChannel:(NSDictionary *)channelParameters;
+- (OSChannel *)newChannelWithParameters:(NSDictionary *)channelParameters;
 - (void)removeChannel:(OSChannel *)channel;
 - (void)moveChannelFromPosition:(NSUInteger)previousPosition toPosition:(NSUInteger)newPosition;
 

@@ -46,7 +46,7 @@
     return theChannelEvent;
 }
 
-- (OSChannelEvent *)newChannelEvent:(NSDictionary *)channelEventParameters{
+- (OSChannelEvent *)newChannelEventWithParameters:(NSDictionary *)channelEventParameters{
     OSChannelEvent * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"ChannelEvent" inManagedObjectContext:self.context];
     newEvent.length = [channelEventParameters objectForKey:@"length"];
     newEvent.powerLevel = [channelEventParameters objectForKey:@"power"];

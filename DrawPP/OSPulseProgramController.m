@@ -19,10 +19,12 @@
 
 - (IBAction)addChannel:(id)sender {
     if (![self.channelText.stringValue isEqual:@""]) {
-        [self.programDataSource addChannelWithName:self.channelText.stringValue];
+        NSDictionary * channelParameters = [NSDictionary dictionaryWithObjectsAndKeys:self.channelText.stringValue, @"name", nil];
+        [self.programDataSource addChannelWithParameters:channelParameters];
+//        [self.programDataSource addChannelWithName:self.channelText.stringValue];
     }
     [self refreshUI];
-    self.channelText.stringValue = @"";
+//    self.channelText.stringValue = @"r";
 
 }
 - (IBAction)selectChannel:(NSTableView *)sender {
@@ -58,11 +60,11 @@
 }
 
 - (IBAction)AddEvent:(id)sender {
-    if (![self.eventText.stringValue isEqual:@""]) {
-        self.programDataSource;
-    }
+//    if (![self.eventText.stringValue isEqual:@""]) {
+//        self.programDataSource;
+//    }
     [self refreshUI];
-    self.eventText.stringValue = @"";
+//    self.eventText.stringValue = @"";
     
 }
 

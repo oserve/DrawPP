@@ -60,17 +60,26 @@
     return resultChannel;
 }
 
-- (OSChannel *)newChannel:(NSDictionary *)channelParameters{
+- (OSChannel *)newChannelWithParameters:(NSDictionary *)channelParameters{
     OSChannel * aChannel = nil;
     if (![self.channelsNames containsObject:[channelParameters objectForKey:@"name"]]) {
         
         aChannel = [NSEntityDescription insertNewObjectForEntityForName:@"Channel" inManagedObjectContext:self.context];
         
-        aChannel.positionOnGraph = [channelParameters objectForKey:@"position"];
-        aChannel.name = [channelParameters objectForKey:@"name"];
-        aChannel.piPulseLength = [channelParameters objectForKey:@"length"];
-        aChannel.piPulsePower = [channelParameters objectForKey:@"power"];
-        aChannel.nucleus = [channelParameters objectForKey:@"nucleus"];
+        NSDictionary * channelParameters =[[NSUserDefaults standardUserDefaults] objectForKey:@"channelDefaultsParameters"];
+
+        NSArray * parametersKeys = [channelParameters allKeys];
+        
+        for (NSString * aKey in parametersKeys) {
+            if (![[channelParameters allKeys] containsObject:aKey]) {
+                [aChannel setValue:[channelParameters objectForKey:aKey] forKey:aKey]; //Using KVC !!!
+            }
+        }
+        
+        if (![[channelParameters allKeys] containsObject:@"positionOnGraph"] || [aChannel.positionOnGraph unsignedIntegerValue]< self.numberOfChannels ) {
+            aChannel.positionOnGraph = [NSNumber numberWithUnsignedInteger:self.numberOfChannels];
+        }
+
         if (self.numberOfChannels == 1) {
             aChannel.isAcquisitionChannel = [NSNumber numberWithBool:YES];
         }

@@ -13,57 +13,52 @@
 #define DEFAULT_LENTGH 100.0
 #define DEFAULT_POWER 10.0
 
+@synthesize channelController = _channelController;
+@synthesize channelEventsController = _channelEventsController;
+@synthesize powersController = _powersController;
+@synthesize lengthsController = _lengthsController;
+
 #pragma mark initialization and properties
 - (instancetype)init
 {
     self = [super init];
     if (self) {
+        self.channelController = [[OSChannelController alloc] initControllerWithContext:self.managedObjectContext];
+        self.channelEventsController = [[OSChannelEventsController alloc] initControllerWithContext:self.managedObjectContext];
+        self.powersController = [[OSPowerLevelsController alloc] initControllerWithContext:self.managedObjectContext];
+        self.lengthsController = [[OSLengthsController alloc] initControllerWithContext:self.managedObjectContext];
+        
         if (![self numberOfChannelsInPulseProgram]){
-            [self addChannelWithName:@"New Channel"];
+//            [self addChannelWithName:@"New Channel"];
+            [self addChannelWithParameters:[NSDictionary dictionaryWithObjectsAndKeys:@"New Channel", @"name", nil]];
         }
     }
     return self;
 }
 
-
-- (OSPowerLevel *)zeroPower{
-        return [self powerLevelWithName:@"Zero" andLevel:[NSNumber numberWithFloat:0]];
-}
-
 #pragma mark OSPulseProgramDataSourceProtocol Protocol methods
 
 - (NSArray *)channelsInPulseProgram{
-	NSSortDescriptor * channelDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnGraph" ascending:YES];
-	NSFetchRequest * channelRequest = [NSFetchRequest fetchRequestWithEntityName:@"Channel"];
-	channelRequest.sortDescriptors = [NSArray arrayWithObject:channelDescriptor];
-	NSError * error = nil;
-	NSArray * channels = [self.managedObjectContext executeFetchRequest:channelRequest error:&error];
-	return channels;
+	return self.channelController.channels;
 }
 
 - (OSChannel *)channelForPosition:(NSUInteger)position{
-    OSChannel * resultChannel = nil;
-    if (position <= [self numberOfChannelsInPulseProgram]) {
-        resultChannel = [[self channelsInPulseProgram] objectAtIndex:position];
-    }
-    return resultChannel;
+    return [self.channelController channelForPosition:position];
 }
 
-- (NSInteger)numberOfChannelsInPulseProgram{
-    return [[self channelsInPulseProgram] count];
+- (NSUInteger)numberOfChannelsInPulseProgram{
+    return self.channelController.numberOfChannels;
 }
 
 - (NSArray *)channelEventsInChannel:(OSChannel *)aChannel{
-    NSSortDescriptor * channelEventDescriptor = [[NSSortDescriptor alloc] initWithKey:@"positionOnChannel" ascending:YES];
-
-    return [aChannel.channelEvents sortedArrayUsingDescriptors:[NSArray arrayWithObject:channelEventDescriptor]];
+    return [self.channelEventsController channelEventsInChannel:aChannel];
 }
 
 - (NSInteger)numberOfChannelEventsInChannel:(OSChannel *)aChannel{
-	return [[self channelEventsInChannel:aChannel] count];
+	return [self.channelEventsController numberOfChannelEventsInChannel:aChannel];
 }
 
-- (NSInteger)numberOfChannelEvents{
+- (NSUInteger)numberOfChannelEvents{
     if (self.numberOfChannelsInPulseProgram) {
         return [[self channelEventsInChannel:[self.channelsInPulseProgram lastObject]] count];
     } else {
@@ -72,30 +67,24 @@
 }
 
 - (OSChannelEvent *)channelEventInChannel:(OSChannel *)aChannel atPosition:(NSUInteger)position{
-    OSChannelEvent * theChannelEvent = nil;
-    if (position < [[self channelEventsInChannel:aChannel] count]) {
-        theChannelEvent = [[self channelEventsInChannel:aChannel] objectAtIndex:position];
-    }
-    return theChannelEvent;
+        return [self.channelEventsController channelEventInChannel:aChannel atPosition:position];
 }
 
 #pragma mark Channels Management
 
-- (void)addChannelWithName:(NSString *)aChannelName{
-    NSInteger newChannelPosition = self.numberOfChannelsInPulseProgram;
+- (void)addChannelWithParameters:(NSDictionary *)newChannelParameters{
+    NSMutableDictionary * channelParameters = [newChannelParameters mutableCopy];
+    NSUInteger newChannelPosition = self.numberOfChannelsInPulseProgram;
+    [channelParameters setObject:[NSNumber numberWithInteger:newChannelPosition] forKey:@"positionOnGrah"];
+
     
-    OSChannel * aChannel = [NSEntityDescription insertNewObjectForEntityForName:@"Channel" inManagedObjectContext:self.managedObjectContext];
-    aChannel.positionOnGraph = [NSNumber numberWithInteger:newChannelPosition];
-    aChannel.name = aChannelName;
-    aChannel.piPulseLength = [NSNumber numberWithFloat:DEFAULT_LENTGH];
-    aChannel.piPulsePower = [NSNumber numberWithFloat:DEFAULT_POWER];
-    aChannel.nucleus = @"1H";
-    
+    OSChannel * aChannel = [self.channelController newChannelWithParameters:channelParameters];
+
     if (!newChannelPosition) {
         aChannel.isAcquisitionChannel = [NSNumber numberWithBool:YES];
-        [self addNewDelayToChannel:aChannel atPosition:0 withLength:[self lengthWithName:@"d1" andDuration:[NSNumber numberWithFloat:DEFAULT_LENTGH]]];
-        [self addNewPulseToChannel:aChannel atPosition:1 withLength:[self lengthWithName:@"p1" andDuration:[NSNumber numberWithFloat:DEFAULT_LENTGH]] Power:[self powerLevelWithName:@"pl1" andLevel:[NSNumber numberWithFloat:DEFAULT_POWER]]];
-        [self addNewDelayToChannel:aChannel atPosition:2 withLength:[self lengthWithName:@"d1" andDuration:[NSNumber numberWithFloat:DEFAULT_LENTGH]]];
+        [self addNewDelayToChannel:aChannel atPosition:0 withLength:[self.lengthsController lengthWithName:@"d1" andDuration:[NSNumber numberWithFloat:DEFAULT_LENTGH]]];
+        [self addNewPulseToChannel:aChannel atPosition:1 withLength:[self.lengthsController lengthWithName:@"p1" andDuration:[NSNumber numberWithFloat:DEFAULT_LENTGH]] Power:[self.powersController powerLevelWithName:@"pl1" andLevel:[NSNumber numberWithFloat:DEFAULT_POWER]]];
+        [self addNewDelayToChannel:aChannel atPosition:2 withLength:[self.lengthsController lengthWithName:@"d1" andDuration:[NSNumber numberWithFloat:DEFAULT_LENTGH]]];
     }
     
     else {
@@ -105,7 +94,36 @@
             eventPosition++;
         }
     }
+
 }
+
+//- (void)addChannelWithName:(NSString *)aChannelName{
+//
+//
+//    NSUInteger newChannelPosition = self.numberOfChannelsInPulseProgram;
+//    
+//    OSChannel * aChannel = [NSEntityDescription insertNewObjectForEntityForName:@"Channel" inManagedObjectContext:self.managedObjectContext];
+//    aChannel.positionOnGraph = [NSNumber numberWithInteger:newChannelPosition];
+//    aChannel.name = aChannelName;
+//    aChannel.piPulseLength = [NSNumber numberWithFloat:DEFAULT_LENTGH];
+//    aChannel.piPulsePower = [NSNumber numberWithFloat:DEFAULT_POWER];
+//    aChannel.nucleus = @"1H";
+//    
+//    if (!newChannelPosition) {
+//        aChannel.isAcquisitionChannel = [NSNumber numberWithBool:YES];
+//        [self addNewDelayToChannel:aChannel atPosition:0 withLength:[self.lengthsController lengthWithName:@"d1" andDuration:[NSNumber numberWithFloat:DEFAULT_LENTGH]]];
+//        [self addNewPulseToChannel:aChannel atPosition:1 withLength:[self.lengthsController lengthWithName:@"p1" andDuration:[NSNumber numberWithFloat:DEFAULT_LENTGH]] Power:[self.powersController powerLevelWithName:@"pl1" andLevel:[NSNumber numberWithFloat:DEFAULT_POWER]]];
+//        [self addNewDelayToChannel:aChannel atPosition:2 withLength:[self.lengthsController lengthWithName:@"d1" andDuration:[NSNumber numberWithFloat:DEFAULT_LENTGH]]];
+//    }
+//    
+//    else {
+//        NSUInteger eventPosition = 0;
+//        for (OSChannelEvent * anEvent in [self channelEventsInChannel:[self channelForPosition:0]]) {
+//            [self addNewDelayToChannel:aChannel atPosition:eventPosition withLength:anEvent.length];
+//            eventPosition++;
+//        }
+//    }
+//}
 
 - (void)removeChannel:(OSChannel *)channel{
     while ([channel.channelEvents count]) {
@@ -115,29 +133,12 @@
     [self.managedObjectContext deleteObject:channel];
 }
 
-- (void)moveChannelFromPosition:(NSInteger)previousPosition toPosition:(NSInteger)newPosition{
-    
-    if (newPosition >= 0 && newPosition <= [self numberOfChannelsInPulseProgram]) {
-        NSMutableArray * allChannels = [[self channelsInPulseProgram] mutableCopy];
-        OSChannel * movingChannel = [self channelForPosition:previousPosition];
-        [allChannels removeObjectAtIndex:previousPosition];
-        [allChannels insertObject:movingChannel atIndex:newPosition];
-        NSInteger newIndex = 0;
-        for (OSChannel * aChannel in allChannels) {
-            aChannel.positionOnGraph = [NSNumber numberWithInteger:newIndex];
-            newIndex++;
-        }
-    }
+- (void)moveChannelFromPosition:(NSUInteger)previousPosition toPosition:(NSUInteger)newPosition{
+    [self.channelController moveChannelFromPosition:previousPosition toPosition:newPosition];
 }
 
 - (NSArray *)channelNames{
-    NSMutableArray * names = [[NSMutableArray alloc] init];
-    for (OSChannel * channel in [self channelsInPulseProgram]) {
-        if (![names containsObject:channel.name]) {
-            [names addObject:channel.name];
-        }
-    }
-    return [NSArray arrayWithArray:names];
+    return self.channelController.channelsNames;
 }
 
 #pragma mark Channel Events Management
@@ -202,46 +203,6 @@
             
         }
     }
-}
-
-#pragma mark Lengths Management
-
-- (OSLength *)lengthWithName:(NSString *)name andDuration:(NSNumber *)duration{
-    NSFetchRequest * lengthRequest = [NSFetchRequest fetchRequestWithEntityName:@"Length"];
-    NSArray * lengths = [self.managedObjectContext executeFetchRequest:lengthRequest error:nil];
-    OSLength * theLength;
-    for (OSLength * existingLength in lengths) {
-        if ([existingLength.name  isEqualToString:name]) {
-            theLength = existingLength;
-            break;
-        }
-    }
-    if (theLength == nil) {
-        theLength = [NSEntityDescription insertNewObjectForEntityForName:@"Length" inManagedObjectContext:self.managedObjectContext];
-        theLength.duration = duration;
-        theLength.name = name;
-    }
-    return theLength;
-}
-
-#pragma mark PowerLevels Management
-
-- (OSPowerLevel *)powerLevelWithName:(NSString *)name andLevel:(NSNumber *)aPowerLevel{
-    NSFetchRequest * powerLevelRequest = [NSFetchRequest fetchRequestWithEntityName:@"PowerLevel"];
-    NSArray * powerLevels = [self.managedObjectContext executeFetchRequest:powerLevelRequest error:nil];
-    OSPowerLevel * thePowerLevel;
-    for (OSPowerLevel * existingPowerLevel in powerLevels) {
-        if ([existingPowerLevel.name isEqualToString:name]) {
-            thePowerLevel = existingPowerLevel;
-            break;
-        }
-    }
-    if (thePowerLevel == nil) {
-        thePowerLevel = [NSEntityDescription insertNewObjectForEntityForName:@"PowerLevel" inManagedObjectContext:self.managedObjectContext];
-        thePowerLevel.power = aPowerLevel;
-        thePowerLevel.name = name;
-    }
-    return thePowerLevel;
 }
 
 #pragma mark Nib methods
