@@ -75,7 +75,7 @@
 - (void)addChannelWithParameters:(NSDictionary *)newChannelParameters{
     NSMutableDictionary * channelParameters = [newChannelParameters mutableCopy];
     NSUInteger newChannelPosition = self.numberOfChannelsInPulseProgram;
-    [channelParameters setObject:[NSNumber numberWithInteger:newChannelPosition] forKey:@"positionOnGrah"];
+    [channelParameters setObject:[NSNumber numberWithInteger:newChannelPosition] forKey:@"positionOnGraph"];
 
     
     OSChannel * aChannel = [self.channelController newChannelWithParameters:channelParameters];

@@ -11,8 +11,8 @@
 @implementation AppDelegate
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     NSDictionary * channelDefaults = [NSDictionary
-                                 dictionaryWithObjectsAndKeys:@"H", @"channelName",[NSNumber numberWithFloat:100],@"powerValue", [NSNumber numberWithFloat:100], @"lengthValue", [NSNumber numberWithFloat:100], @"piPulseLength", [NSNumber numberWithFloat:100], @"piPulsePower", @"1H", @"nucleus", nil];
-    NSDictionary * channelEventDefaults = [NSDictionary dictionaryWithObjectsAndKeys:@"d1", @"delayName", @"p1", @"pulseName", @"pl1", @"powerName", nil];
+                                 dictionaryWithObjectsAndKeys:@"H", @"name", [NSNumber numberWithFloat:100], @"piPulseLength", [NSNumber numberWithFloat:100], @"piPulsePower", @"1H", @"nucleus", nil];
+    NSDictionary * channelEventDefaults = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:100], @"powerValue", [NSNumber numberWithFloat:100], @"lengthValue", @"d1", @"delayName", @"p1", @"pulseName", @"pl1", @"powerName", nil];
     
     NSDictionary * appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:channelDefaults, @"channelDefaultsParameters", channelEventDefaults, @"channelEventDefaults",nil];
     

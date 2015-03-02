@@ -66,13 +66,16 @@
         
         aChannel = [NSEntityDescription insertNewObjectForEntityForName:@"Channel" inManagedObjectContext:self.context];
         
-        NSDictionary * channelParameters =[[NSUserDefaults standardUserDefaults] objectForKey:@"channelDefaultsParameters"];
+        NSDictionary * defaultsChannelParameters =[[NSUserDefaults standardUserDefaults] objectForKey:@"channelDefaultsParameters"];
 
-        NSArray * parametersKeys = [channelParameters allKeys];
+        NSArray * parametersKeys = [defaultsChannelParameters allKeys];
         
         for (NSString * aKey in parametersKeys) {
             if (![[channelParameters allKeys] containsObject:aKey]) {
-                [aChannel setValue:[channelParameters objectForKey:aKey] forKey:aKey]; //Using KVC !!!
+                [aChannel setValue:[defaultsChannelParameters objectForKey:aKey] forKey:aKey]; //Using KVC !!!
+            }
+            else{
+                [aChannel setValue:[channelParameters objectForKey:aKey] forKey:aKey];
             }
         }
         
